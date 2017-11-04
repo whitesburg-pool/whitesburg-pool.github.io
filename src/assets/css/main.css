@@ -2002,7 +2002,7 @@ input[type="reset"].small,
 }
 .wrapper.style2 {
   background-color: #83d3c9;
-  background-image: url("images/light-bl.svg"), url("images/light-br.svg");
+  background-image: none, none;
   background-position: bottom left, bottom right;
   background-repeat: no-repeat, no-repeat;
   background-size: 25em, 25em;
@@ -2245,7 +2245,7 @@ input[type="reset"].small,
 #banner {
   background-attachment: scroll, scroll, scroll, fixed;
   background-color: #645862;
-  background-image: url("images/light-bl.svg"), url("images/light-br.svg"), url("images/overlay.png"), url("../../images/pool1.jpg");
+  background-image: none, none, url("images/overlay.png"), url("../../images/pool1.jpg");
   background-position: bottom center, bottom center, bottom center, bottom center;
   background-repeat: no-repeat, no-repeat, repeat, no-repeat;
   background-size: 25em, 25em, auto, cover;
@@ -2304,7 +2304,7 @@ input[type="reset"].small,
 
 /* Main */
 #main {
-  background-image: url("images/dark-tl.svg"), url("images/dark-tr.svg"), url("images/dark-bl.svg"), url("images/dark-br.svg");
+  background-image: none, none, none, none;
   background-position: top left, top right, bottom left, bottom right;
   background-repeat: no-repeat;
   background-size: 25em;
@@ -2332,7 +2332,7 @@ body.index #main {
 #cta {
   background-attachment: scroll, scroll, scroll, fixed;
   background-color: #645862;
-  background-image: url("images/light-tl.svg"), url("images/light-tr.svg"), url("images/overlay.png"), url("../../images/banner.jpg");
+  background-image: none, none, url("images/overlay.png"), url("../../images/banner.jpg");
   background-position: top left, top right, top left, bottom center;
   background-repeat: no-repeat, no-repeat, repeat, no-repeat;
   background-size: 25em, 25em, auto, cover;
