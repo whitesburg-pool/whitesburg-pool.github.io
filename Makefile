@@ -10,7 +10,7 @@ css: $(CSS_TARGETS)
 
 .SECONDEXPANSION:
 %.css: $(CSS_SRC)/$$*.scss
-	sass $(CSS_FLAGS) $? $(CSS_OUT)/$@
+	@sass $(CSS_FLAGS) $? $(CSS_OUT)/$@
 
 clean:
 	rm -rf .sass-cache/
