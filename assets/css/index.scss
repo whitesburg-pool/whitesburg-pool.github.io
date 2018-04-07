@@ -1,0 +1,72 @@
+---
+---
+
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import "libs/skel";
+
+// map
+.map {
+  height: 500px;
+}
+
+@media screen and (max-width: 736px) {
+  .map {
+    height: 75%;
+  }
+}
+
+// don't need #main padding because we have the map
+#main {
+  padding: 0;
+}
+
+// membership
+#membership {
+  p {
+    text-align: left;
+  }
+}
+
+// social media
+#social {
+  .social-link {
+    // .fa-facebook { color: _palette(facebook, bg); }
+    // .fa-twitter { color: _palette(twitter, bg); }
+    // .fa-instagram { color: _palette(instagram, bg); }
+  }
+
+  p {
+    text-align: center;
+  }
+
+  a {
+    color: _palette(fg);
+  }
+
+  .icon {
+    // color: #e7746f;
+    cursor: inherit;
+    opacity: 1.0;
+  }
+}
+
+// expandy things
+.hovergrow {
+  transition: all .5s;
+  -moz-transition: all .5s; /* Firefox 4 */
+  -webkit-transition: all .5s; /* Safari and Chrome */
+  -o-transition: all .5s; /* Opera */
+  -ms-transition: all .5s; /* IE9 (maybe) */
+}
+
+.hovergrow:hover {
+    -moz-transform:scale(1.2);
+    -webkit-transform:scale(1.2);
+    -o-transform:scale(1.2);
+    -ms-transform:scale(1.2);
+    transform:scale(1.2);
+    z-index:2;
+}
+

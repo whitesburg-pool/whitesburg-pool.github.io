@@ -1,7 +1,7 @@
 // Misc.
 $misc: (
   z-index-base: 10000,
-  icon-opacity: 0.60
+  icon-opacity: 0.80
 );
 
 // Duration.
@@ -90,6 +90,11 @@ $palette: (
 
   dribbble: (
     bg:     #da83ae,
+    fg:     #fff
+  ),
+
+  instagram: (
+    bg:     #8a3ab9,
     fg:     #fff
   )
 
