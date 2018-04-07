@@ -352,6 +352,15 @@
                 }
             }
 
+            &.fa-envelope {
+                background: _palette(envelope, bg);
+                color: _palette(envelope, fg);
+
+                &:hover {
+                    background: lighten(_palette(envelope, bg), 4);
+                }
+            }
+
             &.fa-facebook {
                 background: _palette(facebook, bg);
                 color: _palette(facebook, fg);
