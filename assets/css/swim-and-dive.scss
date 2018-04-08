@@ -1,0 +1,60 @@
+---
+---
+
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import "libs/skel";
+
+#swim-and-dive {
+  padding: 7em 0;
+
+  table {
+    border: 1px solid _palette(fg);
+
+    caption {
+      border: 1px solid _palette(fg);
+      border-bottom: 0px;
+      font-weight: 900;
+    }
+  }
+
+  th, td {
+    padding: 5px;
+  }
+
+  th {
+    text-align: left;
+    font-weight: 400;
+  }
+
+  td {
+  }
+
+  .style2 {
+    table, th {
+      border: 1px solid _palette(one, fg);
+    }
+    .bottom-row {
+      border-bottom: 1px solid _palette(one, fg);
+    }
+    th {
+      font-weight: 900;
+    }
+    .vert-label {
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    }
+    .centered {
+      text-align: center;
+    }
+    #divers {
+      width: 25px;
+      vertical-align: middle;
+    }
+  }
+
+}
