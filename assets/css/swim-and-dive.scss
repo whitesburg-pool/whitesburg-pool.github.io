@@ -57,4 +57,12 @@
     }
   }
 
+  #volunteering {
+    p { text-align: justify; }
+    .row header {
+      .icon { font-size: 50px; }
+      color: _palette(one, bg);
+    }
+  }
+
 }

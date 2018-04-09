@@ -4,7 +4,6 @@
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
-@import url("font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
 
 /*
@@ -195,7 +194,7 @@
 
             .icon {
                 cursor: default;
-                height: 7em;
+                height: 4em;
                 left: 0;
                 position: absolute;
                 text-align: center;
