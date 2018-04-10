@@ -39,4 +39,5 @@ exclude:
   - vendor/ruby/
   - Makefile
   - README.rst
+  - "*.pyc"
 
