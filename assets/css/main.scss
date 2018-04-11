@@ -987,6 +987,10 @@
                 }
             }
 
+            article {
+              padding-top: 6em;
+            }
+
     }
 
 /* Normal */
@@ -1017,6 +1021,10 @@
                 &.major {
                     padding-top: 2em;
                 }
+            }
+
+            article {
+              padding-top: 6em;
             }
 
         /* Wrapper */
@@ -1098,6 +1106,10 @@
                 &.major {
                     padding-top: 1.5em;
                 }
+            }
+
+            article {
+              padding-top: 6em;
             }
 
         /* Wrapper */
@@ -1188,6 +1200,10 @@
                 &:first-child {
                     margin-top: 0;
                 }
+            }
+
+            article {
+              padding-top: 1em;
             }
 
         /* Button */

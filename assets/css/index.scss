@@ -29,6 +29,28 @@
   }
 }
 
+.centered {
+  text-align: center;
+}
+
+#membership .button {
+  margin-top: 2em;
+}
+
+#sale {
+  .fa-layers {
+    font-size: 7em;
+    @media screen and (max-width: 736px) {
+      font-size: 5em;
+    }
+  }
+  .fa-layers-text {
+    color: _palette(one, bg);
+    font-weight: 900;
+  }
+  margin-bottom: 2em;
+}
+
 #reasons-to-join {
   img {
     width: auto;
@@ -58,6 +80,9 @@
     // color: #e7746f;
     cursor: inherit;
     opacity: 1.0;
+    @media screen and (max-width: 736px) {
+      font-size: 3em;
+    }
   }
 }
 
