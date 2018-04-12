@@ -1,0 +1,31 @@
+---
+---
+
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import "libs/skel";
+
+#join-now {
+  table {
+    strike {
+      color: #999;
+    }
+    strong {
+      font-weight: 900;
+    }
+    em {
+      font-style: italic;
+      font-weight: 400;
+      color: red;
+    }
+    border: 1px solid _palette(border);
+  }
+  td, th {
+    padding: 1em;
+    border-bottom: 1px solid _palette(border);
+  }
+  th {
+    font-weight: 400;
+  }
+}
