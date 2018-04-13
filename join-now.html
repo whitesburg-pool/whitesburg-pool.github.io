@@ -1,87 +1,89 @@
 ---
+layout: default
+title: Join Now
 ---
 
-<!DOCTYPE HTML>
-<!--
-  Twenty by HTML5 UP
-  html5up.net | @ajlkn
-  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    {% include head.html title="Join Now" %}
-    <link href="assets/css/join-now.css" rel="stylesheet">
-  </head>
-  <body class="no-sidebar">
-    <div id="page-wrapper">
+<header class="special container">
+  <span class="icon fas fa-users"></span>
+  <h2>Join Now!</h2>
+  <p>When you join Whitesburg Pool, you're not just paying to get in: you're joining a
+  community! For over 50 years, families in South Huntsville have gathered at Whitesburg
+  Pool to celebrate summer and form lasting memories together. Join us today and become part
+  of that continuing tradition!</p>
+</header>
+<section class="wrapper style3 container">
 
-      {% include topbar.html %}
+  <p>To join the pool, you must purchase a membership (a one-time purchase) and pay annual
+  dues. Annual dues are due by May 1st. The table below gives more details.</p>
 
-      <!-- Main -->
-      <article id="join-now">
+  <table>
+    <tr>
+      <th>Membership</th>
+      <td><strike>$300</strike><strong> $50</strong> <em><i class="fas fa-long-arrow-alt-left"></i> 2018 Special!</em></td>
+      <td>
+        One-time purchase. Annual dues also required. Please use the drop-down to select the
+        correct dues type before clicking "add to cart".
+        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="on0" value="Dues Type">
+          <select name="os0">
+            <option value="Membership + individual dues">Membership + individual dues $359.00 USD</option>
+            <option value="Membership + family dues">Membership + family dues $515.00 USD</option>
+          </select> 
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="6MXQ5VE8GS7XS">
+          <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <th>Trial Membership + Dues</th>
+      <td>$200</td>
+      <td>Try out the pool for one summer. May only be purchased once. No additional dues
+        for the first summer.
+        {% include paypal-add-to-cart-button.html button_id="8PQ4JU6NJQ5EY" %}
+      </td>
+    </tr>
+    <tr>
+      <th>Swim Team Pool Fee</th>
+      <td>$100</td>
+      <td>
+        Pool use fee for swim team members who are not full pool members. Fee is paid
+        annually and covers an entire family*. <a href="/swim-and-dive.html#fees">Team
+          fees</a> are also required and must be paid separately to the swim team
+        representative.
+        {% include paypal-add-to-cart-button.html button_id="6RHGXEKW5NMLW" %}
+      </td>
+    </tr>
+    <tr>
+      <th>Dive Team Pool Fee</th>
+      <td>$50</td>
+      <td>
+        Pool use fee for dive team members who are not full pool members. Fee is paid
+        annually and covers an entire family*. <a href="/swim-and-dive.html#fees">Team
+          fees</a> are also required and must be paid separately to the dive team
+        representative.
+        {% include paypal-add-to-cart-button.html button_id="CQMT4KXAHPK2A" %}
+      </td>
+    </tr>
+    <tr>
+      <th>Individual Dues</th>
+      <td>$309</td>
+      <td>
+        Annual dues for an individual.
+        {% include paypal-add-to-cart-button.html button_id="59G5EAJRV8W3Q" %}
+      </td>
+    </tr>
+    <tr>
+      <th>Family Dues</th>
+      <td>$465</td>
+      <td>
+        Annual dues for a family*.
+        {% include paypal-add-to-cart-button.html button_id="HG2CYCVY3ECXE" %}
+      </td>
+    </tr>
+  </table>
+  <p>* A "family" includes immediate family and other individuals living in a single household.</p>
+  {% include paypal-view-cart-button.html %}
 
-        <header class="special container">
-          <span class="icon fas fa-users"></span>
-          <h2>Join Now!</h2>
-        </header>
-        <section class="wrapper style3 container">
-          <p>When you join Whitesburg Pool, you're not just
-          paying to get in: you're joining a community with a tradition of summer memories reaching
-          back over 50 years! Since 1962, families in South Huntsville have gathered at Whitesburg
-          Pool to celebrate summer together. Join us today and become part of our continuing
-          legacy.</p>
+</section>
 
-          <p>To join the pool, you must purchase a membership (a one-time purchase) and pay annual
-          dues. Annual dues are due by May 1st. The table below gives more details.</p>
-
-          <table>
-            <tr>
-              <th>Membership</th>
-              <td><strike>$300</strike><strong> $50</strong> <em><i class="fas fa-long-arrow-alt-left"></i> 2018 Special!</em></td>
-              <td>One-time purchase. Annual dues also required (see below).</td>
-            </tr>
-            <tr>
-              <th>Trial Membership + Dues</th>
-              <td>$200</td>
-              <td>Try out the pool for one summer. May only be purchased once. No additional dues
-                for the first summer.</td>
-            </tr>
-            <tr>
-              <th>Swim Team Pool Fee</th>
-              <td>$100</td>
-              <td>Pool use fee for swim team members who are not full pool members. Fee is paid
-                annually and covers an entire family*. <a href="/swim-and-dive.html#fees">Team
-                fees</a> are also required and must be paid separately to the swim team
-                representative.</td>
-            </tr>
-            <tr>
-              <th>Dive Team Pool Fee</th>
-              <td>$50</td>
-              <td>Pool use fee for dive team members who are not full pool members. Fee is paid
-                annually and covers an entire family*. <a href="/swim-and-dive.html#fees">Team
-                fees</a> are also required and must be paid separately to the dive team
-                representative.</td>
-            </tr>
-            <tr>
-              <th>Individual Dues</th>
-              <td>$309</td>
-              <td>Annual dues for an individual.</td>
-            </tr>
-            <tr>
-              <th>Family Dues</th>
-              <td>$465</td>
-              <td>Annual dues for a family*.</td>
-            </tr>
-          </table>
-          <p>* A "family" includes immediate family and other individuals living in a single household.</p>
-
-      </article>
-
-      {% include footer.html %}
-
-    </div>
-
-    {% include scripts.html %}
-
-  </body>
-</html>
