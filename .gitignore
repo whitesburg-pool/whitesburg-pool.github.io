@@ -2,3 +2,4 @@ _site
 .sass-cache
 .jekyll-metadata
 html5up-twenty.zip
+*.pyc

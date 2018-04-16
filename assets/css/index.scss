@@ -29,6 +29,36 @@
   }
 }
 
+.centered {
+  text-align: center;
+}
+
+#membership .button {
+  margin-top: 2em;
+}
+
+#sale {
+  .fa-layers {
+    font-size: 7em;
+    @media screen and (max-width: 736px) {
+      font-size: 5em;
+    }
+  }
+  .fa-layers-text {
+    color: _palette(one, bg);
+    font-weight: 900;
+  }
+  margin-bottom: 2em;
+}
+
+#reasons-to-join {
+  img {
+    width: auto;
+    height: 250px;
+    margin: auto;
+  }
+}
+
 // social media
 #social {
   .social-link {
@@ -43,12 +73,16 @@
 
   a {
     color: _palette(fg);
+    border-bottom: none;
   }
 
   .icon {
     // color: #e7746f;
     cursor: inherit;
     opacity: 1.0;
+    @media screen and (max-width: 736px) {
+      font-size: 3em;
+    }
   }
 }
 

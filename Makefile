@@ -17,13 +17,15 @@ publish: generate
 		open '$(FTP_URL)'; \
 		lcd $(LOCAL_SITE_DIR); \
 		cd $(REMOTE_SITE_DIR); \
-		mirror --reverse --delete --parallel=2 --verbose; \
+		mirror --reverse --delete --parallel=2 --verbose --exclude-glob *.pyc; \
 	"
 
 generate:
 	@echo "Generating site..."
 	@jekyll build --quiet
 
-clean:
+clean: pyc-clean
 	@jekyll clean
 
+pyc-clean:
+	@find . -name "*.pyc" -delete
