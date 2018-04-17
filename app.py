@@ -1,20 +1,20 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
 # enable debugging
 import sys
 import os
-sys.path.append(os.path.dirname(__file__))
+import site
+lib_dir = os.path.join(os.path.dirname(__file__), "python-lib")
+site.addsitedir(lib_dir)
 
-from bottle import route, run, template
+from flask import Flask
+from wsgiref.handlers import CGIHandler
 
-@route('/')
-def index():
-    return "hello world"
+app = Flask(__name__)
 
-@route('/test')
-def index():
-    return "hello test"
+@app.route("/")
+def hello():
+    return "Hello World!"
 
-run(server="cgi")
-
+CGIHandler().run(app)
