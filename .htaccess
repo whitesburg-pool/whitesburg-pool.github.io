@@ -1,2 +1,4 @@
+PythonPath "sys.path+['/var/www/vhosts/whitesburgpool.org/_python-lib']"
+
 RewriteEngine on
 RewriteRule "app/(.*)" "app-cgi.py/$1"
