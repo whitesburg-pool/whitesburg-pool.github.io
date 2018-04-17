@@ -43,25 +43,10 @@
   }
 
   .style2 {
-    table, th {
-      border: 1px solid _palette(one, fg);
-    }
-    .bottom-row {
-      border-bottom: 1px solid _palette(one, fg);
-    }
-    th {
-      font-weight: 900;
-    }
-    .vert-label {
-      -webkit-transform: rotate(-90deg);
-      -moz-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-    }
-    .centered {
-      text-align: center;
-    }
+    // font-weight: inherit;
+    // strong {
+    //   font-weight: 400;
+    // }
     #divers {
       width: 25px;
       vertical-align: middle;
@@ -75,5 +60,4 @@
       color: _palette(one, bg);
     }
   }
-
 }
