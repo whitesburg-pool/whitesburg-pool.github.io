@@ -187,6 +187,11 @@
                 margin-bottom: 0;
             }
 
+            p + h2 {
+                margin-bottom: 0;
+                padding-top: 1.5em;
+            }
+
             h2 + p {
                 margin-bottom: 0;
                 padding-top: 1.5em;
