@@ -1332,8 +1332,9 @@
 
                     &:before {
                         color: _palette(navButton, fg);
-                        content: '\f0c9';
+                        content: '\2630';
                         font-size: 1em;
+                        font-weight: 900;
                         height: 40px;
                         left: 10px;
                         line-height: 40px;
