@@ -8,6 +8,12 @@
 
 #swim-and-dive {
 
+  #note {
+    background: _palette(two, bg);
+    color: _palette(fg);
+    padding: 1em;
+  }
+
   img {
     width: 100%;
     height: auto;
