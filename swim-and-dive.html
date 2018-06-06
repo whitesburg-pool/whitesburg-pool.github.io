@@ -41,17 +41,13 @@ title: Swim and Dive
       <h3>Forms</h3>
       <ul class="default" id="forms">
         <li>Swim Team:
-          <a href="/docs/WRA Swim Team Registration Form.pdf">pdf <i class="far fa-file-pdf"></i></a>
-          or
-          <a href="/docs/WRA Swim Team Registration Form.doc">word doc <i class="far fa-file-word"></i></a>
+          {% include document.html filename="WRA Swim Team Registration Form" %}
         </li>
         <li>Dive Team:
-          <a href="/docs/WRA Dive Team Registration Form.pdf">pdf <i class="far fa-file-pdf"></i></a>
-          or
-          <a href="/docs/WRA Dive Team Registration Form.doc">word doc <i class="far fa-file-word"></i></a>
+          {% include document.html filename="WRA Dive Team Registration Form" %}
         </li>
         <li>Concussion (needed for both):
-          <a href="/docs/Concussionform.pdf">pdf <i class="far fa-file-pdf"></i></a>
+          {% include document.html filename="WRA Dive Team Registration Form" nodoc=true %}
         </li>
       </ul>
 
@@ -80,6 +76,13 @@ title: Swim and Dive
         <li>1 diver: $70</li>
         <li>2 divers: $100</li>
         <li>3+ divers: $125</li>
+      </ul>
+
+      <h3>New Swimmer Info</h3>
+      <ul class="default" id="new-swimmer-info">
+        <li>Swim Meet Primer:
+          {% include document.html filename="Swim Meet Primer" docext="docx" %}
+        </li>
       </ul>
 
     </section>
