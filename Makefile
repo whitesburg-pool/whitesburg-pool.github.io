@@ -17,9 +17,9 @@ publish: generate
 		set ftp:ssl-allow no; \
 		set cmd:fail-exit yes; \
 		open '$(FTP_URL)'; \
-		mirror --reverse --delete --parallel=2 --verbose --exclude-glob *.pyc \
+		mirror --reverse --delete --parallel=2 --verbose --exclude-glob *.pyc --exclude-glob venv/ \
 			$(LOCAL_SITE_DIR) $(REMOTE_SITE_DIR);\
-		mirror --reverse --delete --parallel=2 --verbose --exclude-glob *.pyc \
+		mirror --reverse --delete --parallel=2 --verbose --exclude-glob *.pyc --exclude-glob venv/ \
 			$(LOCAL_PYTHON_LIB_DIR) $(REMOTE_PYTHON_LIB_DIR);\
 	"
 
