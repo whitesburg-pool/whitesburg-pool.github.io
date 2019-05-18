@@ -3,3 +3,4 @@ _site
 .jekyll-metadata
 html5up-twenty.zip
 *.pyc
+google-api-credentials.json
