@@ -45,6 +45,23 @@ title: Join Now
       </td>
     </tr>
     <tr>
+      <th>Late Fee</th>
+      <td>&nbsp;</td>
+      <td>
+        Late fees are $50 after May 10th and $150 after June 1st.
+        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="on0" value="Late Fees">
+          <select name="os0">
+              <option value="After May 10th">After May 10th $50.00 USD</option>
+              <option value="After June 1st">After June 1st $150.00 USD</option>
+          </select>
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="ENVB8NQ9VW9VA">
+          <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
+        </form>
+      </td>
+    </tr>
+    <tr>
       <th>Trial Membership + Dues</th>
       <td>$200</td>
       <td>Try out the pool for one summer. May only be purchased once. No additional dues
