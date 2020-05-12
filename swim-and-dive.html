@@ -25,10 +25,11 @@ title: Swim and Dive
       <div class="row">
         <div class="6u 12u(narrower)">
           <header><h2>How to Join</h2></header>
-          <p>Just fill out the appropriate forms and bring them with you to registration. 2019
-          registration will be <strong>Sunday, May 19th (1-4pm)</strong>.</p>
-          <p>Families new to swim/dive team are asked to attend a new-swimmer evaluation and parent
-          meeting on <strong>Monday, May 20th</strong> (ages 10 and under from 4-5pm, 11-17 from 5-6pm).</p>
+          <p>Fill out the online forms below and pay the fees via PayPal or print the PDF version of
+          the forms below and bring them along with your payment to registration.</p>
+          <p>Registration dates are to be determined for the 2020 season. Email <a
+              href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>
+          to request to join the email list. You may also check this site for regular updates.</p>
         </div>
         <div class="6u 12u(narrower)">
           <img src="/images/city-meet.jpg" />
@@ -36,13 +37,19 @@ title: Swim and Dive
       </div>
     </section>
     <section>
+      <h3>New Swimmer Info</h3>
+      <ul class="default" id="new-swimmer-info">
+        <li>Swim Meet Handbook:
+          {% include document.html filename="Swim Meet Handbook" docext="docx" %}
+        </li>
+      </ul>
       <h3>Forms</h3>
       <ul class="default" id="forms">
         <li>Swim Team:
-          {% include document.html filename="WRA Swim Team Registration Form" nodoc=true %}
+          {% include document.html filename="WRA Swim Team Registration Form" nodoc=true online="https://docs.google.com/forms/d/e/1FAIpQLScfmYAktbkER5EkgcZQj3WNOQwwDsZitqHwlsWLJzSHxPzOOQ/viewform?usp=sf_link" %}
         </li>
         <li>Dive Team:
-          {% include document.html filename="WRA Dive Team Registration Form" nodoc=true %}
+          {% include document.html filename="WRA Dive Team Registration Form" nodoc=true online="https://docs.google.com/forms/d/e/1FAIpQLSfd47Kyo3xwTYZ8p-oD5mFCY6I6dH5STGPR9DeNjMFTxXmjxA/viewform?usp=sf_link" %}
         </li>
         <li>Concussion (needed for both):
           {% include document.html filename="concussion form" nodoc=true %}
@@ -54,22 +61,19 @@ title: Swim and Dive
 
       <a id="fees"></a>
       <h3>Fees</h3>
-      <p>Have multiple swimmers and/or divers in your family? Great! The cost per
-      participant goes down as you register more kids. In fact, after the 3rd swimmer/diver,
-      the rest are free!</p>
+      <p>Swim team fees include t-shirts as shown below. Dive fees do not include a t-shirt. Swim
+      caps, trophies, and extra shirts can be purchased at an additional cost if desired.</p>
 
       <p>If you aren't a full pool member, you'll need to purchase a <a
         href="/join-now.html">swim/dive team membership</a> in addition to the team
       fees shown below.</p>
 
-      <p>Swim team fees include t-shirts as shown below. Dive fees do not include a t-shirt. Swim
-      caps, trophies, and extra shirts can be purchased at an additional cost if desired.</p>
-
       <h4>Swim Team</h4>
       <ul class="default">
-        <li>1 swimmer: $100 (includes 1 t-shirt)</li>
-        <li>2 swimmers: $160 (includes 2 t-shirts)</li>
-        <li>3+ swimmers: $200 (includes 3 t-shirts)</li>
+        <li>1 swimmer: $120 (includes 1 t-shirt)</li>
+        <li>2 swimmers: $190 (includes 2 t-shirts)</li>
+        <li>3 swimmers: $250 (includes 3 t-shirts)</li>
+        <li>Each additional swimmer after 3: $15 (includes t-shirt)</li>
       </ul>
 
       <h4>Dive Team</h4>
@@ -79,12 +83,52 @@ title: Swim and Dive
         <li>3+ divers: $125</li>
       </ul>
 
-      <h3>New Swimmer Info</h3>
-      <ul class="default" id="new-swimmer-info">
-        <li>Swim Meet Primer:
-          {% include document.html filename="Swim Meet Primer" docext="docx" %}
-        </li>
-      </ul>
+      <h4>Pay Fees With PayPal</h4>
+      <table id="paypal-form">
+        <tr>
+          <th>Swim Team</th>
+          <td>
+            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="Z8Q76KA4DJEKJ">
+              <select name="os0">
+                <option value="One Swimmer">One Swimmer $120.00 USD</option>
+                <option value="Two Swimmers">Two Swimmers $190.00 USD</option>
+                <option value="Three Swimmers">Three Swimmers $250.00 USD</option>
+                <option value="Four Swimmers">Four Swimmers $265.00 USD</option>
+                <option value="Five Swimmers">Five Swimmers $280.00 USD</option>
+                <option value="Six Swimmers">Six Swimmers $295.00 USD</option>
+              </select>
+              <input type="hidden" name="currency_code" value="USD">
+              <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <th>Dive Team</th>
+          <td>
+            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="NH3NK45A5J97G">
+              <select name="os0">
+                <option value="One Diver">One Diver $70.00 USD</option>
+                <option value="Two Divers">Two Divers $100.00 USD</option>
+                <option value="Three+ Divers">Three+ Divers $125.00 USD</option>
+              </select>
+              <input type="hidden" name="currency_code" value="USD">
+              <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <th>Swim/Dive Pool Membership</th>
+          <td>
+            $100
+            {% include paypal-add-to-cart-button.html button_id="6RHGXEKW5NMLW" %}
+          </td>
+        </tr>
+      </table>
+      <p>{% include paypal-view-cart-button.html %}</p>
 
     </section>
   </div>
@@ -100,63 +144,10 @@ title: Swim and Dive
         </div>
         <div class="9u 12u(narrower)">
           <header><h2>Swim Team Schedule</h2></header>
-          <p>After school practice for returning swimmers will begin on <strong>Tuesday, May
-              21st</strong> and run through <strong>Thursday, May 23</strong>. Ages 9-12 practice
-          from 4-5pm. Ages 13-17 practice from 5-6pm.</p>
-          <p>Families new to swim/dive team are asked to attend a new-swimmer evaluation and parent
-          meeting on <strong>Monday, May 20th</strong> (ages 10 and under from 4-5pm, 11-17 from
-          5-6pm).</p>
-          <p>The regular summer schedule begins <strong>Friday, May 24</strong>, with practices
-          Monday, Tuesday, and Friday each week. Swimmers ages 8 and under may choose one of two
-          times: either 8-8:30am or 10:30-11am. Those able to attend the earlier sessions are
-          encouraged to do so. Ages 9-12 practice from 9:30-10:30am, and ages 13-17 practice from
-          8:30-9:30am. Stroke clinics are Wednesday mornings (time TBD). Thursdays are fun days
-          beginning at 10am.</p>
+          <p>Swim Team meet and practice schedules are to be determined for the 2020-21 season.
+          Please check back regularly for updates or join our mailing list.</p>
         </div>
       </div>
-      <table>
-        <caption>2019 Swim Meet Schedule</caption>
-        <tr>
-          <th>Date</th>
-          <th>vs.</th>
-          <th>Location</th>
-        </tr>
-        <tr>
-          <td>June 2 (6:30pm)</td>
-          <td>Time Trials</td>
-          <td>Whitesburg</td>
-        </tr>
-        <tr>
-          <td>June 5</td>
-          <td>Piedmont</td>
-          <td>Piedmont</td>
-        </tr>
-        <tr>
-          <td>June 12</td>
-          <td>Monte Sano</td>
-          <td>Monte Sano</td>
-        </tr>
-        <tr>
-          <td>June 19</td>
-          <td>Redstone Arsenal</td>
-          <td>Whitesburg</td>
-        </tr>
-        <tr>
-          <td>June 26</td>
-          <td>Camelot</td>
-          <td>Whitesburg</td>
-        </tr>
-        <tr>
-          <td>July 3</td>
-          <td>Lily Flag</td>
-          <td>Lily Flag</td>
-        </tr>
-        <tr>
-          <td>July 12-14</td>
-          <td>City Meet</td>
-          <td>Huntsville Aquatic Center</td>
-        </tr>
-      </table>
     </section>
   </div>
 </section>
@@ -169,47 +160,8 @@ title: Swim and Dive
       <div class="row">
         <div class="8u 12u(narrower)">
           <header><h2>Dive Team Schedule</h2></header>
-          <p>Dive Team practices are weekdays from 11:00am-12:00pm for all ages. Meets are typically
-          Monday evenings starting at 6pm.</p>
-          <table>
-            <caption>2018 Dive Meet Schedule</caption>
-            <tr>
-              <th width="100px">Date</th>
-              <th>vs.</th>
-              <th>Location</th>
-              <th>Notes</th>
-            </tr>
-            <tr>
-              <td>June 3</td>
-              <td>Camelot, Lily Flag, Piedmont</td>
-              <td>Camelot</td>
-              <td>Competition for individual placement</td>
-            </tr>
-            <tr>
-              <td>June 10</td>
-              <td>Camelot, Byrd Spring</td>
-              <td>Camelot</td>
-              <td>No team points. Not city qualifier</td>
-            </tr>
-            <tr>
-              <td>June 17</td>
-              <td>off week</td>
-              <td>&mdash;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>June 24</td>
-              <td>Lily Flag</td>
-              <td>Whitesburg</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>July 1</td>
-              <td>Byrd Spring</td>
-              <td>Byrd Spring</td>
-              <td>&nbsp;</td>
-            </tr>
-          </table>
+          <p>Dive Team meet and practice schedules are to be determined for the 2020-21 season.
+          Please check back regularly for updates or join our mailing list.</p>
         </div>
         <div class="4u 12u(narrower)">
           <img src="/images/dive-team1.jpg" />

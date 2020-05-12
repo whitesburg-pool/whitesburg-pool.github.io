@@ -4,3 +4,7 @@
 or
 <a class="document" href="/docs/{{ include.filename }}.{{ docext }}">word doc <i class="far fa-file-word"></i></a>
 {% endunless %}
+{% if include.online %}
+or
+<a class="document" href="{{ include.online }}">online <i class="fas fa-laptop"></i></a>
+{% endif %}
