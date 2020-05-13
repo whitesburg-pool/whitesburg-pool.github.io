@@ -26,7 +26,7 @@
     padding: 10em;
   }
 
-  table {
+  table#paypal-form {
     max-width: 700px;
     strong {
       font-weight: 900;
@@ -37,14 +37,35 @@
       color: red;
     }
     border: 1px solid _palette(bg);
+    td, th {
+      padding: 1em;
+      border-bottom: 1px solid _palette(bg);
+      vertical-align: middle;
+    }
+    th {
+      font-weight: 400;
+    }
   }
-  td, th {
-    padding: 1em;
-    border-bottom: 1px solid _palette(bg);
-    vertical-align: middle;
-  }
-  th {
-    font-weight: 400;
+
+  table {
+    border: 1px solid _palette(fg);
+
+    caption {
+      border: 1px solid _palette(fg);
+      border-bottom: 0px;
+      font-weight: 900;
+    }
+    th, td {
+      padding: 5px;
+    }
+
+    th {
+      text-align: left;
+      font-weight: 400;
+    }
+
+    td {
+    }
   }
 
   button {
