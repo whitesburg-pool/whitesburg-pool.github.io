@@ -31,13 +31,6 @@ ftp.whitesburgpool.org. A make target exists which will sync the folder appropri
 also be available for MacOS (via Homebrew) and Windows (via Cygwin). Alternately, you could just use
 your favorite FTP client.
 
-A dynamic Python site is also in place but is currently unused. It is built on flask_ and is running
-on the web host via its ``mod_python`` support. I have tried to get fast_cgi to work, but so far
-haven't been able to. It is "mounted" via an ``.htaccess`` rewrite rule at ``/app`` (so the root
-page as served by the flask app is available via the web server as https://whitesburgpool.org/app/).
-
-.. _flask: http://flask.pocoo.org/
-
 Acknowledgements
 ================
 
