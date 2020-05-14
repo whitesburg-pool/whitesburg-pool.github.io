@@ -3,8 +3,6 @@ FTP_USERNAME := "automation"
 FTP_URL := "ftp://$(FTP_USERNAME)@$(HOST)"
 LOCAL_SITE_DIR := "_site"
 REMOTE_SITE_DIR := "/httpdocs"
-LOCAL_PYTHON_LIB_DIR := "_python-lib"
-REMOTE_PYTHON_LIB_DIR := "/_python-lib"
 
 .PHONY: all
 all: publish
@@ -19,8 +17,6 @@ publish: generate
 		open '$(FTP_URL)'; \
 		mirror --reverse --delete --parallel=2 --verbose --exclude-glob *.pyc --exclude-glob venv/ \
 			$(LOCAL_SITE_DIR) $(REMOTE_SITE_DIR);\
-		mirror --reverse --delete --parallel=2 --verbose --exclude-glob *.pyc --exclude-glob venv/ \
-			$(LOCAL_PYTHON_LIB_DIR) $(REMOTE_PYTHON_LIB_DIR);\
 	"
 
 generate:
@@ -29,12 +25,3 @@ generate:
 
 clean: pyc-clean
 	@jekyll clean
-
-pyc-clean:
-	@find . -name "*.pyc" -delete
-
-libs:
-	@rm -rf $(PYTHON_LIB)
-	@mkdir $(PYTHON_LIB)
-	@pip install --target $(LOCAL_PYTHON_LIB_DIR) -r requirements.txt
-
