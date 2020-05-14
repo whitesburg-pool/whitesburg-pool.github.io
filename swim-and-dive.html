@@ -86,7 +86,10 @@ title: Swim and Dive
         <li>3+ divers: $125</li>
       </ul>
 
-      <h4>Pay Fees With PayPal</h4>
+      <h4>Pay With PayPal</h4>
+      <p>Clicking "add to cart" below will open a shopping cart tab at PayPal. Note that you can
+      close the tab and come back and add multiple items before finally checking out on the PayPal
+      page.</p>
       <table id="paypal-form">
         <tr>
           <th>Swim Team</th>
@@ -128,6 +131,35 @@ title: Swim and Dive
           <td>
             $100
             {% include paypal-add-to-cart-button.html button_id="6RHGXEKW5NMLW" %}
+          </td>
+        </tr>
+        <tr>
+          <th>T-Shirt</th>
+          <td>
+            $10
+            {% include paypal-add-to-cart-button.html button_id="9JUM2AKKY37VQ" %}
+          </td>
+        </tr>
+        <tr>
+          <th>Swim Cap</th>
+          <td>
+            $10
+            {% include paypal-add-to-cart-button.html button_id="JEBT4FV3MD6L4" %}
+          </td>
+        </tr>
+        <tr>
+          <th>Baseball Cap</th>
+          <td>
+            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="WS48VHGRDWY6Y">
+              <select name="os0">
+                <option value="Open">Open $20.00 USD</option>
+                <option value="Filled">Filled $25.00 USD</option>
+              </select>
+              <input type="hidden" name="currency_code" value="USD">
+              <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
+            </form>
           </td>
         </tr>
       </table>
