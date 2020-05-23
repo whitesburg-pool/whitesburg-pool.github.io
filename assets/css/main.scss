@@ -844,7 +844,7 @@
 /* Banner */
 
     #banner {
-        background-attachment: scroll, scroll, scroll, fixed;
+        // background-attachment: scroll, scroll, scroll, fixed;
         background-color: _palette(three, bg);
         background-image: none, none, none, url('../../images/pool1.jpg');
         background-position: bottom center, bottom center, bottom center, bottom center;
