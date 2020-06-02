@@ -784,6 +784,7 @@
                                 border: solid 1px;
                             }
                         }
+                        background: transparentize(_palette(banner, inner-bg), 0.2);
                     }
                 }
             }
@@ -857,7 +858,7 @@
         text-align: center;
 
         .inner {
-            background: transparentize(_palette(banner, inner-bg), 0.5);
+            background: transparentize(_palette(banner, inner-bg), 0.2);
             color: _palette(banner, inner-fg);
             display: inline-block;
             padding: 3em;
@@ -1579,9 +1580,10 @@
                 padding: 6em 0;
 
                 .inner {
-                    background: none;
+                    // background: none;
+                    background: transparentize(_palette(banner, inner-bg), 0.2);
                     display: block;
-                    padding: 0 1.5em;
+                    padding: 1.5em 1.5em;
 
                     header {
                         h2 {
