@@ -42,4 +42,15 @@
     line-height: 3em;
     min-width: 20em;
   }
+
+  #other_payments {
+    input[type="text"] {
+      display: inline-block;
+      width: auto;
+    }
+
+    .error {
+      color: red;
+    }
+  }
 }
