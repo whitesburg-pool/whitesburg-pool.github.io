@@ -35,38 +35,16 @@ title: Join Now
       <td>$50</td>
       <td>
         One-time purchase. Annual dues also required. Please use the drop-down to select the
-        correct dues type before clicking "add to cart". Note that for 2021, an additional
-        assessment is also required to to cover two major maintenance projects needed this season.
-        The assessment cost is $120 for family memberships and $100 for individual memberships.
+        correct dues type before clicking "add to cart".
         <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
           <input type="hidden" name="on0" value="Dues Type">
           <select name="os0">
-            <!-- <option value="Membership + individual dues">Membership + individual dues $359.00 USD</option> -->
-            <!-- <option value="Membership + family dues">Membership + family dues $515.00 USD</option> -->
-            <option value="Membership + individual dues + assessment">Membership + individual dues + assessment $459.00 USD</option>
-            <option value="Membership + family dues + assessment">Membership + family dues + assessment $635.00 USD</option>
+            <option value="Membership + individual dues">Membership + individual dues $365.00 USD</option>
+            <option value="Membership + senior dues">Membership + senior dues $465.00 USD</option>
+            <option value="Membership + family dues">Membership + family dues $565.00 USD</option>
           </select> 
           <input type="hidden" name="cmd" value="_s-xclick">
           <input type="hidden" name="hosted_button_id" value="6MXQ5VE8GS7XS">
-          <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
-        </form>
-      </td>
-    </tr>
-    <tr>
-      <th>2021 Assessment</th>
-      <td>&nbsp;</td>
-      <td>
-        For 2021, all full members (trial memberships excluded) must pay an assessment on top of their normal pool dues
-        to cover two major maintenance projects needed this season. The cost is $120 for family memberships and $100 for
-        individual memberships.
-        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-          <input type="hidden" name="cmd" value="_s-xclick">
-          <input type="hidden" name="hosted_button_id" value="L2GPD2YY5FLSU">
-          <select name="os0">
-            <option value="Assessment (Family Membership)">Assessment (Family Membership) $120.00 USD</option>
-            <option value="Assessment (Individual Membership)">Assessment (Individual Membership) $100.00 USD</option>
-          </select> 
-          <input type="hidden" name="currency_code" value="USD">
           <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
         </form>
       </td>
@@ -89,8 +67,8 @@ title: Join Now
       </td>
     </tr>
     <tr>
-      <th>Trial Membership + Dues</th>
-      <td>$250</td>
+      <th>Trial Membership</th>
+      <td>$315</td>
       <td>Try out the pool for one summer. May only be purchased once. No additional dues
         for the first summer.
         {% include paypal-add-to-cart-button.html button_id="8PQ4JU6NJQ5EY" %}
@@ -98,7 +76,7 @@ title: Join Now
     </tr>
     <tr>
       <th>Swim &amp; Dive Team Membership</th>
-      <td>$100</td>
+      <td>$115</td>
       <td>
         Pool membership for families with swim team members. Also covers dive team members if you
         have both. Must be purchased annually and covers all of the swimmers and divers in a
@@ -118,22 +96,26 @@ title: Join Now
       </td>
     </tr>
     <tr>
-      <th>Individual Dues + Assessment</th>
-      <td>$309</td>
+      <th>Individual Dues</th>
+      <td>$315</td>
       <td>
-        Annual dues for an individual. Note that for 2021, an additional assessment is also required to
-        cover two major maintenance projects needed this season. The amount for individual memberships
-        is $100. The total amount added to your cart will be $409.
+        Annual dues for an individual.
         {% include paypal-add-to-cart-button.html button_id="59G5EAJRV8W3Q" %}
       </td>
     </tr>
     <tr>
-      <th>Family Dues</th>
-      <td>$465</td>
+      <th>Senior Dues</th>
+      <td>$415</td>
       <td>
-        Annual dues for a family*. Note that for 2021, an additional assessment is also required to
-        cover two major maintenance projects needed this season. The amount for family memberships
-        is $120. The total amount added to your cart will be $585.
+        Annual dues for a couple with no children.
+        {% include paypal-add-to-cart-button.html button_id="8WTU9HHDF4HJ8" %}
+      </td>
+    </tr>
+    <tr>
+      <th>Family Dues</th>
+      <td>$515</td>
+      <td>
+        Annual dues for a family*.
         {% include paypal-add-to-cart-button.html button_id="HG2CYCVY3ECXE" %}
       </td>
     </tr>
