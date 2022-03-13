@@ -9,27 +9,29 @@ Development
 ===========
 
 This site is built using the static site generator jekyll_. This allows us to get some nice features like
-templating_ and less_ support without having to use a dynamic backend.
+templating_ and less_ support without having to use a dynamic backend. It is hosted by Github Pages.
 
 .. _jekyll: https://jekyllrb.com/
 .. _templating: https://jekyllrb.com/docs/templates/
 .. _less: http://lesscss.org/
+   
+You'll need Ruby with Bundler installed. One solution is to use asdf_ (A ``.tool-versions`` file is provided).
 
-When working with Jekyll, you edit files and then run ``jekyll build`` to generate the site, which
+* Use ``bundle install`` to install current dependency versions
+* Use ``bundle update`` to update the lockfile to new versions as defined in `Gemfile`, and 
+* Use ``bundle exec ...`` to run a command using the installed gems
+
+When working with Jekyll, you edit files and then run ``bundle exec jekyll build`` to generate the site, which
 will be generated under the ``_site`` directory. There is also a Makefile which provides a target
 ``generate`` which does the same thing.
 
 While developing, it's nice to view your page while you make changes before uploading them to the
-server. With Jekyll, just run ``jekyll serve`` from the root directory project and then open
-http://localhost:4000/ in your browser. You should see your page running in a little debug web
-server. The server will automatically reload when you save files, so all you have to do is refresh
-the page in the browser to see your changes.
+server. With Jekyll, just run ``bundle exec jekyll serve`` (or ``make serve``) from the root
+directory project and then open http://localhost:4000/ in your browser. You should see your page
+running in a little debug web server. The server will automatically reload when you save files, so
+all you have to do is refresh the page in the browser to see your changes.
 
-To publish, the generated ``_site`` directory needs to be uploaded via FTP to
-ftp.whitesburgpool.org. A make target exists which will sync the folder appropriately. It uses
-``lftp`` which can easily be installed on most Linux distributions via the standard repos. It should
-also be available for MacOS (via Homebrew) and Windows (via Cygwin). Alternately, you could just use
-your favorite FTP client.
+To publish, just commit your changes to the `main` branch.
 
 Acknowledgements
 ================
