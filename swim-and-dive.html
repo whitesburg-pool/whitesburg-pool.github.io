@@ -25,7 +25,7 @@ title: Swim and Dive
       <div class="row">
         <div class="6u 12u(narrower)">
           <header><h2>How to Join</h2></header>
-          <p>Swim team registration for the 2021 season will be open from May 3 through May 25. For questions about swim team,
+          <p>Swim team registration for the 2022 season will be open from May 2 through May 24. For questions about swim team,
           or to be added to the mailing list, please email <a
                href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>.
         </div>
@@ -35,23 +35,19 @@ title: Swim and Dive
       </div>
     </section>
     <section>
-      <h3>New Swimmer Info</h3>
-      <ul class="default" id="new-swimmer-info">
-        <li>Swim Team Primer:
-          {% include document.html filename="Swim Meet Primer" nodoc=true %}
-        </li>
-      </ul>
       <h3>Forms</h3>
       <ul class="default" id="forms">
         <li>Swim Team:
-          {% include document.html filename="WRA Swim Team Registration Form" nodoc=true online="https://docs.google.com/forms/d/e/1FAIpQLScfmYAktbkER5EkgcZQj3WNOQwwDsZitqHwlsWLJzSHxPzOOQ/viewform?usp=sf_link" %}
+          {% include online_form.html online="https://docs.google.com/forms/d/e/1FAIpQLScfmYAktbkER5EkgcZQj3WNOQwwDsZitqHwlsWLJzSHxPzOOQ/viewform?usp=sf_link" %}
         </li>
         <li>Dive Team:
-          {% include document.html filename="WRA Dive Team Registration Form" nodoc=true online="https://docs.google.com/forms/d/e/1FAIpQLSfd47Kyo3xwTYZ8p-oD5mFCY6I6dH5STGPR9DeNjMFTxXmjxA/viewform?usp=sf_link" %}
+          {% include online_form.html online="https://docs.google.com/forms/d/e/1FAIpQLSfd47Kyo3xwTYZ8p-oD5mFCY6I6dH5STGPR9DeNjMFTxXmjxA/viewform?usp=sf_link" %}
         </li>
+        <!--
         <li>Concussion (needed for both):
           {% include document.html filename="concussion form" nodoc=true %}
         </li>
+        -->
         <!--
         <li>City Meet RCSL Child Permission Waiver
           {% include document.html filename="City Meet RCSL Child Permission Waiver" nodoc=true %}
@@ -66,7 +62,8 @@ title: Swim and Dive
 
       <p>If you aren't a full pool member, you'll need to purchase a <a
         href="/join-now.html">swim/dive team membership</a> in addition to the team
-      fees shown below.</p>
+      fees shown below. However, consider getting a trial membership instead, which will
+      allow your whole family to come to the pool all summer long.</p>
 
       <h4>Swim Team</h4>
       <ul class="default">
@@ -89,7 +86,7 @@ title: Swim and Dive
       PayPal page.</p>
       <table id="paypal-form">
         <tr>
-          <th>Swim Team</th>
+          <th>Swim Team - <strong>For Pool Members</strong></th>
           <td>
             <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
               <input type="hidden" name="cmd" value="_s-xclick">
@@ -108,7 +105,26 @@ title: Swim and Dive
           </td>
         </tr>
         <tr>
-          <th>Dive Team</th>
+          <th>Swim Team - <strong>Non-Pool Members</strong> (Includes a swim/dive-only pool membership)</th>
+          <td>
+            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="T9T3UA6A6YJKN">
+              <select name="os0">
+                <option value="One Swimmer">One Swimmer $235.00 USD</option>
+                <option value="Two Swimmers">Two Swimmers $305.00 USD</option>
+                <option value="Three Swimmers">Three Swimmers $365.00 USD</option>
+                <option value="Four Swimmers">Four Swimmers $380.00 USD</option>
+                <option value="Five Swimmers">Five Swimmers $395.00 USD</option>
+                <option value="Six Swimmers">Six Swimmers $410.00 USD</option>
+              </select>
+              <input type="hidden" name="currency_code" value="USD">
+              <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <th>Dive Team - <strong>For Pool Members</strong></th>
           <td>
             <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
               <input type="hidden" name="cmd" value="_s-xclick">
@@ -124,10 +140,19 @@ title: Swim and Dive
           </td>
         </tr>
         <tr>
-          <th>Swim/Dive Pool Membership</th>
+          <th>Dive Team - <strong>Non-Pool Members</strong> (Includes a swim/dive-only pool membership)</th>
           <td>
-            $100
-            {% include paypal-add-to-cart-button.html button_id="6RHGXEKW5NMLW" %}
+            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="RBYCYRSWUCK4E">
+              <select name="os0">
+                <option value="One Diver">One Diver $195.00 USD</option>
+                <option value="Two Divers">Two Divers $220.00 USD</option>
+                <option value="Three+ Divers">Three+ Divers $240.00 USD</option>
+              </select>
+              <input type="hidden" name="currency_code" value="USD">
+              <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
+            </form>
           </td>
         </tr>
         <tr>
@@ -161,7 +186,19 @@ title: Swim and Dive
         </tr>
       </table>
       <p>{% include paypal-view-cart-button.html %}</p>
+    </section>
+  </div>
+</section>
 
+<!-- Swim Team Schedule -->
+<section class="wrapper style4 container">
+  <div class="content">
+    <section>
+      <h3>New Swimmer Info</h3>
+      <p>Welcome to the team! If you have any questions, email
+        <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>.
+        This Swim Team Primer also has great information: {% include document.html filename="Swim Meet Primer" nodoc=true %}.
+      </p>
     </section>
   </div>
 </section>
@@ -177,50 +214,46 @@ title: Swim and Dive
         <div class="9u 12u(narrower)">
           <header><h2>Swim Team Schedule</h2></header>
 
-          <p>Registration information for the 2021 summer swim season:</p>
-          <p>A "Meet the Coaches" day and in-person registration day will be held on Saturday, May 8 from 1-4
-          pm at the pool. Online signups (see above) will be open from May 3 - May 25.</p>
-          <p>There is a new swimmer evaluation and parent meeting scheduled for Thursday, May 20th. Ages 10
-          and under will be from 5-6 pm and ages 11-17 will be from 6-7 pm.</p>
-          <p>A coaches' orientation and training meeting will be held on Saturday, May 22nd from 2-4 pm.</p>
-          <p>Afternoon practice for returning swimmers will begin on Monday, May 24th with time trials on
-          Saturday, May 29th.</p>
+          <p>Registration information for the 2022 summer swim season:</p>
+          <p>There is a new swimmer evaluation and parent meeting schedule is TBD.</p>
+          <p>A coaches' orientation and training meeting will be held on Saturday, May 21st at Whitesburg Pool from 2-4 pm.</p>
+          <p>Afternoon practice for returning swimmers will begin on Monday, May 23rd. Morning practices will start May 26th.</p>
         </div>
       </div>
       <table>
-        <caption>2020 Swim Meet Schedule</caption>
+        <caption>2022 Swim Meet Schedule (Tentative)</caption>
         <tr>
           <th>Date</th>
           <th>vs.</th>
           <th>Location</th>
         </tr>
         <tr>
-          <td>June 2</td>
-          <td>Hampton Cove</td>
-          <td>Hampton Cove</td>
-        </tr>
-        <tr>
-          <td>June 9</td>
-          <td>Sharon Johnston</td>
-          <td>Sharon Johnston</td>
-        </tr>
-        <tr>
-          <td>June 16</td>
+          <td>June 1</td>
           <td>Piedmont</td>
+          <td>Piedmont</td>
+        </tr>
+        <tr>
+          <td>June 8</td>
+          <td>(bye week)</td>
+          <td>(bye week)</td>
+        </tr>
+        <tr>
+          <td>June 15</td>
+          <td>Sharon Johnston</td>
+          <td>Sharon Johnston</td>
+        </tr>
+        <tr>
+          <td>June 22</td>
+          <td>Camelot</td>
           <td>Whitesburg</td>
         </tr>
         <tr>
-          <td>June 23</td>
-          <td>Sherwood Springs</td>
+          <td>June 29</td>
+          <td>Mt. Carmel</td>
           <td>Whitesburg</td>
         </tr>
         <tr>
-          <td>June 30</td>
-          <td>Mountain Springs</td>
-          <td>Mountain Springs</td>
-        </tr>
-        <tr>
-          <td>July 9-11</td>
+          <td>July 8-10</td>
           <td>City Meet</td>
           <td>Huntsville Aquatics Center</td>
         </tr>
