@@ -1,0 +1,22 @@
+---
+---
+
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import "libs/skel";
+
+#donate {
+    #new-deck {
+        width: 50%;
+        margin-top: 4em;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #donation {
+        margin-top: 4em;
+    }
+}
