@@ -9,6 +9,7 @@
   <head>
     {% include head.html %}
     <link href="/assets/css/{{page.css | default: page.title|slugify}}.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body class="{{ page.body_class | default:no-sidebar }}">
     <div id="page-wrapper">

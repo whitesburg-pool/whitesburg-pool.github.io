@@ -24,13 +24,30 @@ title: Donate
 
 <section id="donation" class="wrapper style3 container special">
   <h2>Donate Now</h2>
-  <div id="smart-button-container">
-    <div class="hidden" style="text-align: center"><label for="description"> </label><input type="text" name="descriptionInput" id="description" maxlength="127" value="Deck Project"></div>
-      <p id="descriptionError" style="visibility: hidden; color:red; text-align: center;">Please enter a description</p>
-    <div style="text-align: center"><label for="amount">Amount </label><input name="amountInput" type="number" id="amount" value="" ><span> USD</span></div>
-      <p id="priceLabelError" style="visibility: hidden; color:red; text-align: center;">Please enter a price</p>
+  <p>Give at least $200 and you can optionally have your name added to our donor wall.</p>
+  <div id="smart-button-container" x-data="{donorWall: true, amount: null}">
+    <div class="" style="text-align: center">
+      <input type="hidden" name="descriptionInput" id="description" maxlength="127"
+        x-bind:value="donorWall && amount && amount >= 250
+                      ? 'Deck Project (name on donor wall)'
+                      : 'Deck Project (NO name on donor wall)'">
+    </div>
+    <p id="descriptionError" style="visibility: hidden; color:red; text-align: center;">Please enter a description</p>
+
+    <div style="text-align: center">
+      <label for="amount">Amount </label>
+      <input name="amountInput" type="number" id="amount" value="" x-model="amount"><span> USD</span>
+    </div>
+    <p id="priceLabelError" style="visibility: hidden; color:red; text-align: center;">Please enter a price</p>
+
+    <div style="text-align: center" :class="amount && amount >= 250 ? '' : 'hidden'">
+      <input name="donor-wall" type="checkbox" id="donor-wall" x-model="donorWall">
+      <label for="donor-wall">Please include my name on the donor wall</label>
+    </div>
+
     <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
-      <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Please enter an Invoice ID</p>
+    <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Please enter an Invoice ID</p>
+
     <div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container"></div>
   </div>
 </section>
