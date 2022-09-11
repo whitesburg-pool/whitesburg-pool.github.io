@@ -1,0 +1,146 @@
+---
+layout: default
+title: Join Now
+---
+
+<article x-data="{
+  member: null,
+  items: {
+    membership: {description: 'Membership', price: 50, multiple: false}
+  },
+  cart: [],
+  get cart_total() {
+    return this.cart.reduce(
+      (acc, batch) => acc + (batch.item.price * batch.quantity),
+      0
+    ).toString()
+  },
+  add_to_cart(item) {
+    existing_batch = this.cart.find(batch => batch.item.description == item.description)
+    if (existing_batch == undefined) {
+      this.cart.push({item: item, quantity: 1})
+    } else {
+      existing_batch.quantity += 1
+    }
+  },
+  remove_from_cart(item) {
+    idx = this.cart.findIndex(batch => batch.item.description == item.description)
+    if (idx > -1) {
+      this.cart.splice(idx, 1)
+    }
+  },
+  decrement_qty(item) {
+    existing_batch = this.cart.find(batch => batch.item.description == item.description)
+    if (existing_batch != undefined) {
+      if (existing_batch.quantity >= 2) {
+        existing_batch.quantity -= 1
+      } else if (existing_batch.quantity == 1) {
+        this.remove_from_cart(item)
+      }
+    }
+  }
+}">
+
+<header class="special container">
+  <span class="icon fas fa-users"></span>
+  <h2>Join Now!</h2>
+  <p>When you join Whitesburg Pool, you're not just paying to get in: you're joining a
+  community! For over 50 years, families in South Huntsville have gathered at Whitesburg
+  Pool to celebrate summer and form lasting memories together. Join us today and become part
+  of that continuing tradition!</p>
+
+  <div class="isolate inline-flex rounded-md shadow-sm mt-10">
+    <button x-on:click="member = true" x-bind:class="member==true ? 'bg-indigo-300 hover:bg-indigo-400' : 'bg-white hover:bg-gray-50'" type="button" class="relative inline-flex items-center rounded-l-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+      I am already a member
+    </button>
+    <button x-on:click="member = false" x-bind:class="member==false ? 'bg-indigo-300 hover:bg-indigo-400' : 'bg-white hover:bg-gray-50'" type="button" class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+      I am not a member yet
+    </button>
+  </div>
+</header>
+
+
+<section x-show="member==false" id="already-a-member" class="wrapper style3 container">
+  <div class="flex items-center space-x-2">
+    <div>Membership:</div>
+    <div
+      x-on:click="add_to_cart(items.membership)"
+      type="button"
+      class="cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
+        Add to Cart
+    </div>
+  </div>
+</section>
+
+
+<section x-show="member==true" class="wrapper style3 container">
+  <p>Already a member</p>
+</section>
+
+<section id="shopping-cart" x-show="cart.length > 0 " class="wrapper style3 container">
+  <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+    <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Cart</h2>
+
+    <div class="mt-8">
+      <div class="flow-root">
+        <ul role="list" class="-my-6 divide-y divide-gray-200">
+
+          <template x-for="batch in cart">
+            <li class="flex py-6">
+              <div class="flex flex-1 flex-col">
+                <div>
+                  <div class="flex justify-between text-base font-medium text-gray-900">
+                    <h3 x-text="batch.item.description"></h3>
+                    <p class="ml-4" x-text="currency.format(batch.item.price)"></p>
+                  </div>
+                </div>
+                <div class="flex flex-1 items-end justify-between text-sm">
+                  <p class="text-gray-500">
+                  Qty
+                  <span class="ml-2 isolate inline-flex rounded-md">
+                    <span type="button" x-on:click="decrement_qty(batch.item)" class="cursor-pointer relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">-</span>
+                    <span class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" x-text="batch.quantity"></span>
+                    <span type="button" x-on:click="add_to_cart(batch.item)" class="cursor-pointer relative inline-flex items-center rounded-l-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">+</span>
+                  </span>
+                  </p>
+
+                  <div class="flex">
+                    <div type="button" class="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer" x-on:click="remove_from_cart(batch.item)">Remove</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </template>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
+    <div class="flex justify-between text-base font-medium text-gray-900">
+      <p>Total</p>
+      <p x-text="currency.format(cart_total)"></p>
+    </div>
+    <div class="mt-6">
+      <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<script>
+// Create our number formatter.
+var currency = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+
+  // These options are needed to round to whole numbers if that's what you want.
+  //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+  //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+});
+</script>
+
+
+</article>
