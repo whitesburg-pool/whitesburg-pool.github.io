@@ -14,11 +14,11 @@ templating_ and less_ support without having to use a dynamic backend. It is hos
 .. _jekyll: https://jekyllrb.com/
 .. _templating: https://jekyllrb.com/docs/templates/
 .. _less: http://lesscss.org/
-   
+
 You'll need Ruby with Bundler installed. One solution is to use asdf_ (A ``.tool-versions`` file is provided).
 
 * Use ``bundle install`` to install current dependency versions
-* Use ``bundle update`` to update the lockfile to new versions as defined in `Gemfile`, and 
+* Use ``bundle update`` to update the lockfile to new versions as defined in `Gemfile`, and
 * Use ``bundle exec ...`` to run a command using the installed gems
 
 When working with Jekyll, you edit files and then run ``bundle exec jekyll build`` to generate the site, which
