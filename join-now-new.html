@@ -59,9 +59,10 @@ title: Join Now
       <fieldset>
         <legend class="sr-only">Dues Type</legend>
         <div class="space-y-5">
-          <div class="cursor-pointer relative flex items-start" x-on:click="dues_skus=['family_dues']">
+          <div class="cursor-pointer relative flex items-start">
             <div class="flex h-5 items-center">
               <input id="family" aria-describedby="family-description" name="dues_type" type="radio" checked
+                x-on:change="dues_skus=['family_dues']"
                 class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
             </div>
             <div class="ml-3 text-sm">
@@ -70,9 +71,10 @@ title: Join Now
             </div>
           </div>
 
-          <div class="cursor-pointer relative flex items-start" x-on:click="dues_skus=['couples_dues']">
+          <div class="cursor-pointer relative flex items-start">
             <div class="flex h-5 items-center">
               <input id="couple" aria-describedby="couple-description" name="dues_type" type="radio"
+                x-on:change="dues_skus=['couples_dues']"
                 class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
             </div>
             <div class="ml-3 text-sm">
@@ -81,9 +83,10 @@ title: Join Now
             </div>
           </div>
 
-          <div class="cursor-pointer relative flex items-start" x-on:click="dues_skus=['individual_dues']">
+          <div class="cursor-pointer relative flex items-start">
             <div class="flex h-5 items-center">
               <input id="individual" aria-describedby="individual-description" name="dues_type" type="radio"
+                x-on:change="dues_skus=['individual_dues']"
                 class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
             </div>
             <div class="ml-3 text-sm">
@@ -95,7 +98,7 @@ title: Join Now
       </fieldset>
     </div>
     <div class="flex">
-      <template x-model="refresh_token" x-for="sku in skus">
+      <template x-model="refresh_token" x-for="sku in skus" :key="sku">
         <div x-data="{item: inventory.get_item(sku)}" class="flex flex-col space-y-2 max-w-max bg-gray-100 p-6 m-4">
           <div class="font-medium" x-text="item.description"></div>
           <div x-text="currency.format(item.price)"></div>
