@@ -6,6 +6,10 @@
 @import 'libs/mixins';
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
 
+[x-cloak] {
+    display: none !important;
+}
+
 /*
     Twenty by HTML5 UP
     html5up.net | @ajlkn

@@ -4,143 +4,180 @@ title: Join Now
 ---
 
 <article x-data="{
-  member: null,
-  items: {
-    membership: {description: 'Membership', price: 50, multiple: false}
-  },
-  cart: [],
-  get cart_total() {
-    return this.cart.reduce(
-      (acc, batch) => acc + (batch.item.price * batch.quantity),
-      0
-    ).toString()
-  },
-  add_to_cart(item) {
-    existing_batch = this.cart.find(batch => batch.item.description == item.description)
-    if (existing_batch == undefined) {
-      this.cart.push({item: item, quantity: 1})
-    } else {
-      existing_batch.quantity += 1
-    }
-  },
-  remove_from_cart(item) {
-    idx = this.cart.findIndex(batch => batch.item.description == item.description)
-    if (idx > -1) {
-      this.cart.splice(idx, 1)
-    }
-  },
-  decrement_qty(item) {
-    existing_batch = this.cart.find(batch => batch.item.description == item.description)
-    if (existing_batch != undefined) {
-      if (existing_batch.quantity >= 2) {
-        existing_batch.quantity -= 1
-      } else if (existing_batch.quantity == 1) {
-        this.remove_from_cart(item)
-      }
-    }
-  }
+  member: null
 }">
 
-<header class="special container">
-  <span class="icon fas fa-users"></span>
-  <h2>Join Now!</h2>
-  <p>When you join Whitesburg Pool, you're not just paying to get in: you're joining a
-  community! For over 50 years, families in South Huntsville have gathered at Whitesburg
-  Pool to celebrate summer and form lasting memories together. Join us today and become part
-  of that continuing tradition!</p>
+  <header class="special container">
+    <span class="icon fas fa-users"></span>
+    <h2>Join Now!</h2>
+    <p>When you join Whitesburg Pool, you're not just paying to get in: you're joining a
+      community! For over 50 years, families in South Huntsville have gathered at Whitesburg
+      Pool to celebrate summer and form lasting memories together. Join us today and become part
+      of that continuing tradition!</p>
 
-  <div class="isolate inline-flex rounded-md shadow-sm mt-10">
-    <button x-on:click="member = true" x-bind:class="member==true ? 'bg-indigo-300 hover:bg-indigo-400' : 'bg-white hover:bg-gray-50'" type="button" class="relative inline-flex items-center rounded-l-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
-      I am already a member
-    </button>
-    <button x-on:click="member = false" x-bind:class="member==false ? 'bg-indigo-300 hover:bg-indigo-400' : 'bg-white hover:bg-gray-50'" type="button" class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
-      I am not a member yet
-    </button>
-  </div>
-</header>
-
-
-<section x-show="member==false" id="already-a-member" class="wrapper style3 container">
-  <div class="flex items-center space-x-2">
-    <div>Membership:</div>
-    <div
-      x-on:click="add_to_cart(items.membership)"
-      type="button"
-      class="cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
-        Add to Cart
+    <div class="isolate inline-flex rounded-md shadow-sm mt-10">
+      <button x-on:click="member = 'full'"
+        x-bind:class="member=='full' ? 'bg-indigo-300 hover:bg-indigo-400' : 'bg-white hover:bg-gray-50'" type="button"
+        class="relative inline-flex items-center rounded-l-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+        I am already a full member
+      </button>
+      <button x-on:click="member = 'trial'"
+        x-bind:class="member=='trial' ? 'bg-indigo-300 hover:bg-indigo-400' : 'bg-white hover:bg-gray-50'" type="button"
+        class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+        I have had a trial membership before
+      </button>
+      <button x-on:click="member = 'never'"
+        x-bind:class="member=='never' ? 'bg-indigo-300 hover:bg-indigo-400' : 'bg-white hover:bg-gray-50'" type="button"
+        class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+        I have never been a member
+      </button>
     </div>
-  </div>
-</section>
+  </header>
+
+  <section x-cloak x-show="member=='full'" class="wrapper style3 container" x-data="{
+      dues_skus: ['family_dues'],
+      get late_skus() {
+        let today = new Date();
+        let this_year = today.getFullYear();
+        let late1 = new Date(`${this_year}-05-11T00:00:00-0500`);
+        let late2 = new Date(`${this_year}-06-02T00:00:00-0500`);
+        if (today < late1) {
+          return [];
+        } else if (today < late2) {
+          return ['late_fee_1'];
+        } else {
+          return ['late_fee_2'];
+        }
+      },
+      get skus() { refresh_token = new Date(); return this.dues_skus.concat(this.late_skus) },
+      refresh_token: ''
+    }">
+    <p>If you have already purchased a membership, then you just need to pay dues. Do note that a late fee of $50 will
+      apply to dues paid after May 10th, or $150 if paid after June 1st.</p>
+    <div>
+      What type of dues do you need?
+      <fieldset>
+        <legend class="sr-only">Dues Type</legend>
+        <div class="space-y-5">
+          <div class="cursor-pointer relative flex items-start" x-on:click="dues_skus=['family_dues']">
+            <div class="flex h-5 items-center">
+              <input id="family" aria-describedby="family-description" name="dues_type" type="radio" checked
+                class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="family" class="font-medium text-gray-700">Family</label>
+              <p id="family-description" class="text-gray-500">Covers everyone in a household</p>
+            </div>
+          </div>
+
+          <div class="cursor-pointer relative flex items-start" x-on:click="dues_skus=['couples_dues']">
+            <div class="flex h-5 items-center">
+              <input id="couple" aria-describedby="couple-description" name="dues_type" type="radio"
+                class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="couple" class="font-medium text-gray-700">Couple</label>
+              <p id="couple-description" class="text-gray-500">Covers two people living in a household</p>
+            </div>
+          </div>
+
+          <div class="cursor-pointer relative flex items-start" x-on:click="dues_skus=['individual_dues']">
+            <div class="flex h-5 items-center">
+              <input id="individual" aria-describedby="individual-description" name="dues_type" type="radio"
+                class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="individual" class="font-medium text-gray-700">Individual</label>
+              <p id="individual-description" class="text-gray-500">Covers a single individual</p>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="flex">
+      <template x-model="refresh_token" x-for="sku in skus">
+        <div x-data="{item: inventory.get_item(sku)}" class="flex flex-col space-y-2 max-w-max bg-gray-100 p-6 m-4">
+          <div class="font-medium" x-text="item.description"></div>
+          <div x-text="currency.format(item.price)"></div>
+        </div>
+      </template>
+    </div>
+    <div x-on:click="skus.forEach(sku => cart.add_item(sku))" type="button"
+      class="ml-4 max-w-max cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
+      Add all to Cart
+    </div>
+  </section>
+
+  <section x-cloak x-show="member=='trial'" class="wrapper style3 container">
+    <p>Trial member</p>
+  </section>
+
+  <section x-cloak x-show="member=='never'" class="wrapper style3 container">
+    <p>
+      If you have never been a member before, then you should consider our trial membership. It can only be purchased
+      once, but it covers your whole family for your first summer. It's a great way to try out the pool and see if a
+      full membership is right for you. Note that this membership level does not include ownership or voting rights.
+    </p>
+    {% include item.html sku="trial_membership" %}
+  </section>
 
 
-<section x-show="member==true" class="wrapper style3 container">
-  <p>Already a member</p>
-</section>
+  <section id="shopping-cart" x-cloak x-show="cart.num_items() > 0" class="wrapper style3 container">
+    <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+      <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Cart</h2>
 
-<section id="shopping-cart" x-show="cart.length > 0 " class="wrapper style3 container">
-  <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
-    <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Cart</h2>
+      <div class="mt-8">
+        <div class="flow-root">
+          <ul role="list" class="-my-6 divide-y divide-gray-200">
 
-    <div class="mt-8">
-      <div class="flow-root">
-        <ul role="list" class="-my-6 divide-y divide-gray-200">
-
-          <template x-for="batch in cart">
-            <li class="flex py-6">
-              <div class="flex flex-1 flex-col">
-                <div>
-                  <div class="flex justify-between text-base font-medium text-gray-900">
-                    <h3 x-text="batch.item.description"></h3>
-                    <p class="ml-4" x-text="currency.format(batch.item.price)"></p>
+            <template x-for="batch in cart.items()">
+              <li class="flex py-6">
+                <div class="flex flex-1 flex-col">
+                  <div>
+                    <div class="flex justify-between text-base font-medium text-gray-900">
+                      <h3 x-text="batch.item.description"></h3>
+                      <p class="ml-4" x-text="currency.format(batch.item.price)"></p>
+                    </div>
                   </div>
-                </div>
-                <div class="flex flex-1 items-end justify-between text-sm">
-                  <p class="text-gray-500">
-                  Qty
-                  <span class="ml-2 isolate inline-flex rounded-md">
-                    <span type="button" x-on:click="decrement_qty(batch.item)" class="cursor-pointer relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">-</span>
-                    <span class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" x-text="batch.quantity"></span>
-                    <span type="button" x-on:click="add_to_cart(batch.item)" class="cursor-pointer relative inline-flex items-center rounded-l-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">+</span>
-                  </span>
-                  </p>
+                  <div class="flex flex-1 items-end justify-between text-sm">
+                    <p class="text-gray-500">
+                      Quantity
+                      <span class="ml-2 isolate inline-flex rounded-md">
+                        <span type="button" x-on:click="cart.decrement_qty(batch.item.sku)"
+                          class="cursor-pointer relative inline-flex items-center rounded-l-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">-</span>
+                        <span
+                          class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                          x-text="batch.quantity"></span>
+                        <span type="button" x-on:click="cart.add_item(batch.item.sku)"
+                          class="cursor-pointer relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">+</span>
+                      </span>
+                    </p>
 
-                  <div class="flex">
-                    <div type="button" class="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer" x-on:click="remove_from_cart(batch.item)">Remove</button>
+                    <div class="flex">
+                      <div type="button" class="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer"
+                        x-on:click="cart.remove_item(batch.item)">Remove</button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </li>
-          </template>
+              </li>
+            </template>
 
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
-    <div class="flex justify-between text-base font-medium text-gray-900">
-      <p>Total</p>
-      <p x-text="currency.format(cart_total)"></p>
+    <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
+      <div class="flex justify-between text-base font-medium text-gray-900">
+        <p>Total</p>
+        <p x-text="currency.format(cart.total())"></p>
+      </div>
+      <div class="mt-6">
+        <a href="#"
+          class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+      </div>
     </div>
-    <div class="mt-6">
-      <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
     </div>
-  </div>
-  </div>
-</section>
-
-
-<script>
-// Create our number formatter.
-var currency = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-
-  // These options are needed to round to whole numbers if that's what you want.
-  //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-  //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
-});
-</script>
-
+  </section>
 
 </article>
