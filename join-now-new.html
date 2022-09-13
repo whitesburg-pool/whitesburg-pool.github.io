@@ -17,18 +17,18 @@ title: Join Now
 
     <div class="isolate inline-flex rounded-md shadow-sm mt-10">
       <button x-on:click="member = 'full'"
-        x-bind:class="member=='full' ? 'bg-indigo-300 hover:bg-indigo-400' : 'bg-white hover:bg-gray-50'" type="button"
-        class="relative inline-flex items-center rounded-l-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+        x-bind:class="member=='full' ? 'bg-brand-pale hover:bg-brand-lightest' : 'bg-white hover:bg-gray-50'" type="button"
+        class="relative inline-flex items-center rounded-l-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">
         I am already a full member
       </button>
       <button x-on:click="member = 'trial'"
-        x-bind:class="member=='trial' ? 'bg-indigo-300 hover:bg-indigo-400' : 'bg-white hover:bg-gray-50'" type="button"
-        class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+        x-bind:class="member=='trial' ? 'bg-brand-pale hover:bg-brand-lightest' : 'bg-white hover:bg-gray-50'" type="button"
+        class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">
         I have had a trial membership before
       </button>
       <button x-on:click="member = 'never'"
-        x-bind:class="member=='never' ? 'bg-indigo-300 hover:bg-indigo-400' : 'bg-white hover:bg-gray-50'" type="button"
-        class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+        x-bind:class="member=='never' ? 'bg-brand-pale hover:bg-brand-lightest' : 'bg-white hover:bg-gray-50'" type="button"
+        class="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">
         I have never been a member
       </button>
     </div>
@@ -55,19 +55,19 @@ title: Join Now
     <p>If you have already purchased a membership, then you just need to pay dues. Do note that a late fee of $50 will
       apply to dues paid after May 10th, or $150 if paid after June 1st.</p>
     <div>
-      What type of dues do you need?
+      <p>What type of dues do you need?</p>
       <fieldset>
         <legend class="sr-only">Dues Type</legend>
-        <div class="space-y-5">
+        <div class="">
           <div class="cursor-pointer relative flex items-start">
             <div class="flex h-5 items-center">
               <input id="family" aria-describedby="family-description" name="dues_type" type="radio" checked
                 x-on:change="dues_skus=['family_dues']"
-                class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                class="h-4 w-4 border-gray-300 text-brand focus:ring-brand-lighter">
             </div>
             <div class="ml-3 text-sm">
               <label for="family" class="font-medium text-gray-700">Family</label>
-              <p id="family-description" class="text-gray-500">Covers everyone in a household</p>
+              <p id="family-description" class="mb-0 text-gray-500">Covers everyone in a household</p>
             </div>
           </div>
 
@@ -75,7 +75,7 @@ title: Join Now
             <div class="flex h-5 items-center">
               <input id="couple" aria-describedby="couple-description" name="dues_type" type="radio"
                 x-on:change="dues_skus=['couples_dues']"
-                class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                class="h-4 w-4 border-gray-300 text-brand focus:ring-brand-lighter">
             </div>
             <div class="ml-3 text-sm">
               <label for="couple" class="font-medium text-gray-700">Couple</label>
@@ -87,7 +87,7 @@ title: Join Now
             <div class="flex h-5 items-center">
               <input id="individual" aria-describedby="individual-description" name="dues_type" type="radio"
                 x-on:change="dues_skus=['individual_dues']"
-                class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                class="h-4 w-4 border-gray-300 text-brand focus:ring-brand-lighter">
             </div>
             <div class="ml-3 text-sm">
               <label for="individual" class="font-medium text-gray-700">Individual</label>
@@ -106,7 +106,7 @@ title: Join Now
       </template>
     </div>
     <div x-on:click="skus.forEach(sku => cart.add_item(sku))" type="button"
-      class="ml-4 max-w-max cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
+      class="ml-4 max-w-max cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker">
       Add all to Cart
     </div>
   </section>
@@ -147,17 +147,17 @@ title: Join Now
                       Quantity
                       <span class="ml-2 isolate inline-flex rounded-md">
                         <span type="button" x-on:click="cart.decrement_qty(batch.item.sku)"
-                          class="cursor-pointer relative inline-flex items-center rounded-l-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">-</span>
+                          class="cursor-pointer relative inline-flex items-center rounded-l-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">-</span>
                         <span
-                          class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-gray-700 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                          class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-gray-700 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter"
                           x-text="batch.quantity"></span>
                         <span type="button" x-on:click="cart.add_item(batch.item.sku)"
-                          class="cursor-pointer relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500">+</span>
+                          class="cursor-pointer relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">+</span>
                       </span>
                     </p>
 
                     <div class="flex">
-                      <div type="button" class="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer"
+                      <div type="button" class="font-medium text-brand hover:text-brand-lighter cursor-pointer"
                         x-on:click="cart.remove_item(batch.item)">Remove</button>
                       </div>
                     </div>
@@ -177,7 +177,7 @@ title: Join Now
       </div>
       <div class="mt-6">
         <a href="#"
-          class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+          class="flex items-center justify-center rounded-md border border-transparent bg-brand px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-brand-darker">Checkout</a>
       </div>
     </div>
     </div>

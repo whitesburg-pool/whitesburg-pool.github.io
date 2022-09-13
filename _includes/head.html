@@ -2,7 +2,28 @@
 <script async src="https://cdn.splitbee.io/sb.js"></script>
 
 <!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      fontFamily: {
+        sans: ['Lato', 'sans-serif']
+      },
+      extend: {
+        colors: {
+          brand: {
+            pale: "#a994cf",
+            lightest: "#896bbd",
+            lighter: "#7350b1",
+            DEFAULT: "#593d89",
+            darker: "#47316d",
+            darkest: "#362552"
+          }
+        }
+      }
+    }
+  }
+</script>
 
 <title>Whitesburg Pool, Huntsville, AL - {{ page.title }} </title>
 
