@@ -1,8 +1,9 @@
-<div x-data="{item: inventory.get_item('{{ include.sku }}')}" class="flex flex-col space-y-2 max-w-max bg-gray-100 p-6 m-4">
+<div x-data="{item: inventory.get_item('{{ include.sku }}')}"
+  class="flex flex-col justify-between bg-gray-100 p-6 m-4">
   <div class="font-medium" x-text="item.description"></div>
   <div x-text="currency.format(item.price)"></div>
   <div x-on:click="cart.add_item(item.sku)" type="button"
-    class="max-w-max cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker">
+    class="w-max mt-4 cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker">
     Add to Cart
   </div>
 </div>

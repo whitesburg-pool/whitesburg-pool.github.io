@@ -1,0 +1,84 @@
+<div x-data="{
+      dues_skus: ['family_dues'],
+      get late_skus() {
+        {% if include.include_late_fees %}
+          let today = new Date();
+          let this_year = today.getFullYear();
+          let late1 = new Date(`${this_year}-05-11T00:00:00-0500`);
+          let late2 = new Date(`${this_year}-06-02T00:00:00-0500`);
+          if (today < late1) {
+            return [];
+          } else if (today < late2) {
+            return ['late_fee_1'];
+          } else {
+            return ['late_fee_2'];
+          }
+        {% else %}
+          return []
+        {% endif %}
+      },
+      get membership_skus() {
+        {% if include.include_membership %}
+          return ['membership']
+        {% else %}
+          return []
+        {% endif %}
+      },
+      get skus() { refresh_token = new Date(); return this.membership_skus.concat(this.dues_skus).concat(this.late_skus) },
+      refresh_token: ''
+    }">
+  <div>
+    <fieldset x-id="['dues_type']">
+      <legend class="sr-only">Dues Type</legend>
+      <div class="">
+        <div x-id="['family']" class="cursor-pointer relative flex items-start">
+          <div class="flex h-5 items-center">
+            <input :id="$id('family')" aria-describedby="family-description" :name="$id('dues_type')" type="radio"
+              checked x-on:change="dues_skus=['family_dues']"
+              class="h-4 w-4 border-gray-300 text-brand focus:ring-brand-lighter">
+          </div>
+          <div class="ml-3 text-sm">
+            <label :for="$id('family')" class="font-medium text-gray-700">Family</label>
+            <p id="family-description" class="mb-0 text-gray-500">Covers everyone in a household</p>
+          </div>
+        </div>
+
+        <div x-id="['couple']" class="cursor-pointer relative flex items-start">
+          <div class="flex h-5 items-center">
+            <input :id="$id('couple')" aria-describedby="couple-description" :name="$id('dues_type')"
+              type="radio" x-on:change="dues_skus=['couples_dues']"
+              class="h-4 w-4 border-gray-300 text-brand focus:ring-brand-lighter">
+          </div>
+          <div class="ml-3 text-sm">
+            <label :for="$id('couple')" class="font-medium text-gray-700">Couple</label>
+            <p id="couple-description" class="text-gray-500">Covers two people living in a household</p>
+          </div>
+        </div>
+
+        <div x-id="['individual']" class="cursor-pointer relative flex items-start">
+          <div class="flex h-5 items-center">
+            <input :id="$id('individual')" aria-describedby="individual-description" :name="$id('dues_type')"
+              type="radio" x-on:change="dues_skus=['individual_dues']"
+              class="h-4 w-4 border-gray-300 text-brand focus:ring-brand-lighter">
+          </div>
+          <div class="ml-3 text-sm">
+            <label :for="$id('individual')" class="font-medium text-gray-700">Individual</label>
+            <p id="individual-description" class="text-gray-500">Covers a single individual</p>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="flex">
+    <template x-model="refresh_token" x-for="sku in skus" :key="sku">
+      <div x-data="{item: inventory.get_item(sku)}" class="flex flex-col space-y-2 max-w-max bg-gray-100 p-6 m-4">
+        <div class="font-medium" x-text="item.description"></div>
+        <div x-text="currency.format(item.price)"></div>
+      </div>
+    </template>
+  </div>
+  <div x-on:click="skus.forEach(sku => cart.add_item(sku))" type="button"
+    class="ml-4 max-w-max cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker">
+    Add all to Cart
+  </div>
+</div>
