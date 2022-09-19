@@ -30,6 +30,7 @@ plugins:
 
 # Local server settings
 port: 4001
+livereload: true
 
 # Exclude from processing.
 exclude:
