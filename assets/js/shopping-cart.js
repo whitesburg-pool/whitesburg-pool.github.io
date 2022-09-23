@@ -116,4 +116,32 @@ inventory.add_item(
 )
 {% endfor %}
 
+let processing_fee_items = []
+processing_fee_items.unshift(
+{%- for item in site.data.processing_fees %}
+  {
+    amount: {{item['amount']}},
+    {%- if site.data.stripe.mode == "test" %}
+    stripe_id: "{{ item['stripe_id_test'] }}"
+    {%- else %}
+    stripe_id: "{{ item['stripe_id_live'] }}"
+    {%- endif %}
+  },
+{%- endfor %}
+)
+processing_fee_items.reverse()
+
+function calculate_fee(subtotal) {
+  let fixed_fee = 0.3
+  let percent_fee = .029
+  let total = (subtotal + fixed_fee) / (1 - percent_fee)
+  return total - subtotal
+}
+
+function get_processing_fee_item(amount) {
+  let fee = calculate_fee(amount)
+  let item = processing_fee_items.find(item => item.amount < fee);
+  return new Item("stripe_processing_fee", "Stripe Processing Fee", item.amount, false, item.stripe_id)
+}
+
 var stripe = Stripe('{{ site.data.stripe.api_key[site.data.stripe.mode] }}');
