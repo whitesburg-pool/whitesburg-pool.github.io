@@ -162,9 +162,15 @@ title: Join Now
         <p>Total</p>
         <p x-text="currency.format(cart.total())"></p>
       </div>
-      <div class="mt-6">
-        <a href="#checkout" @click="checkout(cart)"
-          class="flex items-center justify-center rounded-md border border-transparent bg-brand px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-brand-darker">Checkout</a>
+      <div class="mt-6" x-data="{ member_name: null }">
+        <div class="flex items-center space-x-4">
+          <label for="member_name" class="w-max font-medium text-medium">Primary Member Name:<span class="text-red-500">*</span></label>
+          <input id="member_name" type="text" class="max-w-lg" x-model="member_name">
+        </div>
+        <p class="text-sm">Sometimes payment information doesn't match membership information. Who is the primary person on your membership?</p>
+        <a href="#checkout" @click="checkout(cart, member_name)" roll="button" :class="member_name ? ['bg-brand', 'hover:bg-brand-darker', 'cursor-pointer'] : ['bg-gray-200', 'cursor-default']"
+          class="flex items-center justify-center rounded-md border border-transparent px-6 py-3 mt-8 text-base font-medium text-white shadow-sm">Checkout</a>
+        <input type="checkbox">
       </div>
     </div>
     </div>
@@ -174,8 +180,10 @@ title: Join Now
 
 <script>
 
-  function checkout(cart) {
+  function checkout(cart, member_name) {
+    if (!member_name) return;
     stripe.redirectToCheckout({
+      clientReferenceId: member_name,
       lineItems: cart.items().map((batch) => {
         return {
           price: batch.item.stripe_id,
