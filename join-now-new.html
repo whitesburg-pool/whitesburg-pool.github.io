@@ -130,7 +130,7 @@ title: Join Now
                     </div>
                   </div>
                   <div class="flex flex-1 items-end justify-between text-sm">
-                    <p class="text-gray-500">
+                    <p x-show="batch.item.allow_multiple" class="text-gray-500">
                       Quantity
                       <span class="ml-2 isolate inline-flex rounded-md">
                         <span type="button" x-on:click="cart.decrement_qty(batch.item.sku)"

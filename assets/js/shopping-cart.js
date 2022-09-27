@@ -106,8 +106,8 @@ let inventory = new Inventory()
 inventory.add_item(
   "{{ item['sku'] }}",
   "{{ item['description'] }}",
-  "{{ item['price'] }}",
-  "{{ item['allow_multiple'] }}",
+  {{ item['price'] }},
+  "{{ item['allow_multiple'] }}" === "true",
 {%- if site.data.stripe.mode == "test" %}
   "{{ item['stripe_id_test'] }}"
 {%- else %}
