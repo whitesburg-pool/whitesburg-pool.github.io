@@ -78,7 +78,7 @@
     </template>
   </div>
   <div x-on:click="skus.forEach(sku => cart.add_item(sku))" type="button"
-    class="ml-4 max-w-max cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker">
-    Add all to Cart
+    class="ml-4 max-w-max cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker",
+    x-text="skus.length > 1 ? 'All all to cart' : 'Add to cart'">
   </div>
 </div>
