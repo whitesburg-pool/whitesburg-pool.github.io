@@ -3,245 +3,216 @@ layout: default
 title: Join Now
 ---
 
-<header class="special container">
-  <span class="icon fas fa-users"></span>
-  <h2>Join Now!</h2>
-  <p>When you join Whitesburg Pool, you're not just paying to get in: you're joining a
-  community! For over 50 years, families in South Huntsville have gathered at Whitesburg
-  Pool to celebrate summer and form lasting memories together. Join us today and become part
-  of that continuing tradition!</p>
-</header>
-<section class="wrapper style3 container">
+<article x-data="{
+  member: null
+}">
 
-  <p>To join the pool, you must purchase a membership (a one-time purchase) and pay annual dues.
-  The table below gives more details on pricing. Do note that a late fee of $50 will apply to dues
-  paid after May 10th, or $150 if paid after June 1st.<p>
+  <header class="special container">
+    <span class="icon fas fa-users"></span>
+    <h2>Join Now!</h2>
+    <p>When you join Whitesburg Pool, you're not just paying to get in: you're joining a
+      community! For over 50 years, families in South Huntsville have gathered at Whitesburg
+      Pool to celebrate summer and form lasting memories together. Join us today and become part
+      of that continuing tradition!</p>
 
-  <p>New members must also submit <a href="/docs/membership-form.pdf">this membership form</a>
-  (also availabe at the pool office). The form only needs to be submitted once unless your
-  information changes. The form can be printed and brought to the pool office or mailed to 610
-  Sanders Rd., Huntsville, AL 35802.</p>
+    <p>To help you select the right items for your situation, choose the appropriate option below,
+      or just click "I know what I need" if you want to select items yourself.</p>
 
-  <p>Payments may be made online by purchasing the correct items via PayPal below. Clicking "add to
-  cart" below will open a new tab with your PayPal shopping cart. Note that you can close the new
-  tab to come back and add multiple items before checking out with PayPal. Alternately, cash or
-  checks can be brought to the pool office or mailed to 610 Sanders Rd., Huntsville AL 35802.</p>
-
-  <p>For questions or issues regarding payment, please contact <a href="mailto:president@whitesburgpool.org">president@whitesburgpool.org</a>.</p>
-
-  <table>
-    <tr>
-      <th>Membership</th>
-      <td>$50</td>
-      <td>
-        One-time purchase. Annual dues also required. Please use the drop-down to select the
-        correct dues type before clicking "add to cart".
-        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-          <input type="hidden" name="on0" value="Dues Type">
-          <select name="os0">
-            <option value="Membership + individual dues">Membership + individual dues $365.00 USD</option>
-            <option value="Membership + senior dues">Membership + senior dues $465.00 USD</option>
-            <option value="Membership + family dues">Membership + family dues $565.00 USD</option>
-          </select> 
-          <input type="hidden" name="cmd" value="_s-xclick">
-          <input type="hidden" name="hosted_button_id" value="6MXQ5VE8GS7XS">
-          <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
-        </form>
-      </td>
-    </tr>
-    <tr>
-      <th>Late Fee</th>
-      <td>&nbsp;</td>
-      <td>
-        Late fees are $50 after May 10th and $150 after June 1st.
-        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-          <input type="hidden" name="on0" value="Late Fees">
-          <select name="os0">
-              <option value="After May 10th">After May 10th $50.00 USD</option>
-              <option value="After June 1st">After June 1st $150.00 USD</option>
-          </select>
-          <input type="hidden" name="cmd" value="_s-xclick">
-          <input type="hidden" name="hosted_button_id" value="ENVB8NQ9VW9VA">
-          <button type="submit" class="button" alt="Add to cart with PayPal"><i class="fas fa-cart-plus"></i> Add to cart</button>
-        </form>
-      </td>
-    </tr>
-    <tr>
-      <th>Trial Membership</th>
-      <td>$315</td>
-      <td>Try out the pool for one summer. May only be purchased once. No additional dues
-        for the first summer.
-        {% include paypal-add-to-cart-button.html button_id="8PQ4JU6NJQ5EY" %}
-      </td>
-    </tr>
-    <tr>
-      <th>Swim &amp; Dive Team Membership</th>
-      <td>$115</td>
-      <td>
-        Pool membership for families with swim team members. Also covers dive team members if you
-        have both. Must be purchased annually and covers all of the swimmers and divers in a
-        family*. <a href="/swim-and-dive.html#fees">Team fees</a> are also required and must be paid
-        separately to the swim team representative.
-        {% include paypal-add-to-cart-button.html button_id="6RHGXEKW5NMLW" %}
-      </td>
-    </tr>
-    <tr>
-      <th>Dive Team Membership</th>
-      <td>$50</td>
-      <td>
-        Pool membership for families with only dive team members. Must be purchased annually and
-        covers all of the divers in a family*. <a href="/swim-and-dive.html#fees">Team fees</a> are
-        also required and must be paid separately to the dive team representative.
-        {% include paypal-add-to-cart-button.html button_id="CQMT4KXAHPK2A" %}
-      </td>
-    </tr>
-    <tr>
-      <th>Individual Dues</th>
-      <td>$315</td>
-      <td>
-        Annual dues for an individual.
-        {% include paypal-add-to-cart-button.html button_id="59G5EAJRV8W3Q" %}
-      </td>
-    </tr>
-    <tr>
-      <th>Senior Dues</th>
-      <td>$415</td>
-      <td>
-        Annual dues for a couple with no children.
-        {% include paypal-add-to-cart-button.html button_id="8WTU9HHDF4HJ8" %}
-      </td>
-    </tr>
-    <tr>
-      <th>Family Dues</th>
-      <td>$515</td>
-      <td>
-        Annual dues for a family*.
-        {% include paypal-add-to-cart-button.html button_id="HG2CYCVY3ECXE" %}
-      </td>
-    </tr>
-  </table>
-  <p>* A "family" includes immediate family and other individuals living in a single household.</p>
-  {% include paypal-view-cart-button.html %}
-
-</section>
-
-<section id="other_payments" class="wrapper style3 container">
-  <h2>Other Payments</h2>
-
-  <p>If you need to make a payment in a different amount, you can use the form below or visit <a
-    href="https://paypal.me/whitesburgpool">paypal.me/whitesburgpool</a>.</p>
-
-  <div id="smart-button-container">
-    <div>
-      <label for="description">Purpose </label><input type="text" name="descriptionInput" id="description" maxlength="127" value="">
+    <div class="mx-auto isolate flex flex-col sm:flex-row sm:rounded-md shadow-sm mt-10 max-w-fit">
+      <button x-on:click="member = 'full'"
+        x-bind:class="member=='full' ? 'bg-brand-pale hover:bg-brand-lightest' : 'bg-white hover:bg-gray-50'"
+        type="button"
+        class="relative inline-flex items-center sm:rounded-l-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">
+        I am already a full member
+      </button>
+      <button x-on:click="member = 'trial'"
+        x-bind:class="member=='trial' ? 'bg-brand-pale hover:bg-brand-lightest' : 'bg-white hover:bg-gray-50'"
+        type="button"
+        class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">
+        I have had a trial membership before
+      </button>
+      <button x-on:click="member = 'never'"
+        x-bind:class="member=='never' ? 'bg-brand-pale hover:bg-brand-lightest' : 'bg-white hover:bg-gray-50'"
+        type="button"
+        class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">
+        I have never been a member
+      </button>
+      <button x-on:click="member = 'other'"
+        x-bind:class="member=='other' ? 'bg-brand-pale hover:bg-brand-lightest' : 'bg-white hover:bg-gray-50'"
+        type="button"
+        class="relative -ml-px inline-flex items-center sm:rounded-r-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">
+        I know what I need
+      </button>
     </div>
-    <p id="descriptionError" class="error" style="visibility: hidden;"> Please enter a description </p>
-    <div>
-      <label for="amount">Amount </label><input name="amountInput" type="number" id="amount" value="" ><span> USD</span>
-    </div>
-    <p id="priceLabelError" style="visibility: hidden;">Please enter a price</p>
-    <div id="invoiceidDiv" style="display: none;"><label for="invoiceid"> </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
-    <p id="invoiceidError" style="display: none; visibility: hidden;">Please enter an Invoice ID</p>
-    <div style="margin-top: 0.625rem;" id="paypal-button-container"></div>
-  </div>
-</section>
+  </header>
 
-<script src="https://www.paypal.com/sdk/js?client-id=AfLb_Cu54TzSAyxK1fO2_iP_vzY9l7wVbYkTa7g0HjWskfLRmZtFGS9Lj5BPRCOvO5KVse72GOwJrjho&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <section x-cloak x-show="member=='full'" class="wrapper style3 container">
+    <p>If you have already purchased a membership, then you just need to pay dues. Do note that a late fee of $50 will
+      apply to dues paid after May 10th, or $150 if paid after June 1st.</p>
+    <p>If you need to update your information, you can also fill out the membership form again
+      <a href="{{ site.data.links.membership_form }}">online</a> or download and print
+      <a href="{{ site.data.links.membership_form_pdf }}">the PDF version</a> and return it to the pool office.
+    </p>
+    <p>What type of dues do you need?</p>
+    {% include select_dues_type.html include_late_fees=true %}
+  </section>
+
+  <section x-cloak x-show="member=='trial'" class="wrapper style3 container">
+    <p>If you have been a trial member before or if you're just ready to go ahead and get a full membership,
+      we're super excited to have you!</p>
+
+    <p>If we don't have a membership form for you, then you will need to fill one out. You can do that
+      <a href="{{ site.data.links.membership_form }}">online</a> or you can download and print
+      <a href="{{ site.data.links.membership_form_pdf }}">the PDF version</a> and either mail or bring the form to the
+      pool. If you filled one out when you purchased a trial membership, then you don't need to submit
+      a new one unless your information has changed.
+    </p>
+
+    <p>You will also need to purchase a membership and pay your dues. The membership itself is a one-time
+      expense of $50 and represents your share of the organization. Dues are paid each year (including your
+      first year).
+
+    <p>Finally, you will need to pay dues. If you are buying your membership before the season, then dues
+      are due by May 10th. After May 10th, a late fee of $50 will apply, and after June 1st the late
+      fee increases to $150. The cost of dues depends on how many people are in your household.</p>
+    <div>
+      {% include select_dues_type.html include_membership=true %}
+  </section>
+
+  <section x-cloak x-show="member=='never'" class="wrapper style3 container">
+    <p>
+      If you have never been a member before, then you should consider our trial membership. It can only be purchased
+      once, but it covers your whole family for your first summer. It's a great way to try out the pool and see if a
+      full membership is right for you. Note that this membership level does not include ownership or voting rights.
+    </p>
+
+    <p>You need to fill out the membership form. The form can either be filled out
+      <a href="{{ site.data.links.membership_form }}">online</a> or you can download and print
+      <a href="{{ site.data.links.membership_form_pdf }}">the PDF version</a> and either mail or bring the form to the
+      pool.
+    </p>
+
+    <div class="max-w-max">
+      {% include item.html sku="trial_membership" %}
+    </div>
+  </section>
+
+  <section x-cloak x-show="member=='other'" class="wrapper style3 container flex flex-col">
+    <p>Membership form: {% include document.html nodoc=true filename="/docs/membership-form.pdf"
+      online="https://tally.so/r/mRGlxv" %}</p>
+    <div class="w-full grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      {% include item.html sku="trial_membership" %}
+      {% include item.html sku="membership" %}
+      {% include item.html sku="family_dues" %}
+      {% include item.html sku="couples_dues" %}
+      {% include item.html sku="individual_dues" %}
+      {% include item.html sku="late_fee_1" %}
+      {% include item.html sku="late_fee_2" %}
+    </div>
+  </section>
+
+
+  <section id="shopping-cart" x-cloak x-show="cart.num_items() > 0" class="wrapper style3 container">
+    <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+      <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Cart</h2>
+
+      <div class="mt-8">
+        <div class="flow-root">
+          <ul role="list" class="-my-6 divide-y divide-gray-200">
+
+            <template x-for="batch in cart.items()">
+              <li class="flex py-6">
+                <div class="flex flex-1 flex-col">
+                  <div>
+                    <div class="flex justify-between text-base font-medium text-gray-900">
+                      <h3 x-text="batch.item.description"></h3>
+                      <p class="ml-4" x-text="currency.format(batch.item.price)"></p>
+                    </div>
+                  </div>
+                  <div class="flex flex-1 items-end justify-between text-sm">
+                    <p x-show="batch.item.allow_multiple" class="text-gray-500">
+                      Quantity
+                      <span class="ml-2 isolate inline-flex rounded-md">
+                        <span type="button" x-on:click="cart.decrement_qty(batch.item.sku)"
+                          class="cursor-pointer relative inline-flex items-center rounded-l-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">-</span>
+                        <span
+                          class="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-gray-700 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter"
+                          x-text="batch.quantity"></span>
+                        <span type="button" x-on:click="cart.add_item(batch.item.sku)"
+                          class="cursor-pointer relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-gray-100 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-200 focus:z-10 focus:border-brand-lighter focus:outline-none focus:ring-1 focus:ring-brand-lighter">+</span>
+                      </span>
+                    </p>
+
+                    <div class="flex">
+                      <div type="button" class="font-medium text-brand hover:text-brand-lighter cursor-pointer"
+                        x-on:click="cart.remove_item(batch.item)">Remove</button>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+            </template>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col border-t border-gray-200 py-6 px-4 sm:px-6" x-data="{
+      get subtotal() {return cart.total()},
+      get fee() {return get_processing_fee_item(cart.total())},
+      pay_fee: true,
+      get total() {return cart.total() + (this.pay_fee ? this.fee.price : 0)}
+    }">
+      <div class="flex justify-between text-base font-medium text-gray-900">
+        <p>Subtotal</p>
+        <p x-text="currency.format(subtotal)"></p>
+      </div>
+      <div class="flex flex-row items-center justify-end space-x-2 mb-4">
+        <label for="pay_fees" class="text-sm font-medium text-brand">Yes, I will add <span x-text="currency.format(fee.price)"></span> to help offset the processing fee.</label>
+        <input x-model="pay_fee" id="pay_fees" type="checkbox" class="text-brand focus:ring-brand outline-4">
+      </div>
+      <div class="flex justify-between text-base font-medium text-gray-900">
+        <p>Total</p>
+        <p x-text="currency.format(total)"></p>
+      </div>
+      <div class="mt-6" x-data="{ member_name: null }">
+        <div class="flex items-center space-x-4">
+          <label for="member_name" class="w-max font-medium text-medium">Primary Member Name:<span class="text-red-500">*</span></label>
+          <input id="member_name" type="text" class="max-w-lg" x-model="member_name">
+        </div>
+        <p class="text-sm">Sometimes payment information doesn't match membership information. Who is the primary person on your membership?</p>
+        <a href="#checkout" @click="checkout(cart, member_name, pay_fee, fee)" roll="button" :class="member_name ? ['bg-brand', 'hover:bg-brand-darker', 'cursor-pointer'] : ['bg-gray-200', 'cursor-default']"
+          class="flex items-center justify-center rounded-md border border-transparent px-6 py-3 mt-8 text-base font-medium text-white shadow-sm">Checkout</a>
+      </div>
+    </div>
+    </div>
+  </section>
+
+</article>
+
 <script>
-  function initPayPalButton() {
-    var description = document.querySelector('#smart-button-container #description');
-    var amount = document.querySelector('#smart-button-container #amount');
-    var descriptionError = document.querySelector('#smart-button-container #descriptionError');
-    var priceError = document.querySelector('#smart-button-container #priceLabelError');
-    var invoiceid = document.querySelector('#smart-button-container #invoiceid');
-    var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
-    var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
-
-    var elArr = [description, amount];
-
-    if (invoiceidDiv.firstChild.innerHTML.length > 1) {
-      invoiceidDiv.style.display = "block";
-    }
-
-    var purchase_units = [];
-    purchase_units[0] = {};
-    purchase_units[0].amount = {};
-
-    function validate(event) {
-      return event.value.length > 0;
-    }
-
-    paypal.Buttons({
-      style: {
-        color: 'white',
-        shape: 'rect',
-        label: 'paypal',
-        layout: 'vertical',
-
-      },
-
-      onInit: function (data, actions) {
-        actions.disable();
-
-        if(invoiceidDiv.style.display === "block") {
-          elArr.push(invoiceid);
-        }
-
-        elArr.forEach(function (item) {
-          item.addEventListener('keyup', function (event) {
-            var result = elArr.every(validate);
-            if (result) {
-              actions.enable();
-            } else {
-              actions.disable();
-            }
-          });
-        });
-      },
-
-      onClick: function () {
-        if (description.value.length < 1) {
-          descriptionError.style.visibility = "visible";
-        } else {
-          descriptionError.style.visibility = "hidden";
-        }
-
-        if (amount.value.length < 1) {
-          priceError.style.visibility = "visible";
-        } else {
-          priceError.style.visibility = "hidden";
-        }
-
-        if (invoiceid.value.length < 1 && invoiceidDiv.style.display === "block") {
-          invoiceidError.style.visibility = "visible";
-        } else {
-          invoiceidError.style.visibility = "hidden";
-        }
-
-        purchase_units[0].description = description.value;
-        purchase_units[0].amount.value = amount.value;
-
-        if(invoiceid.value !== '') {
-          purchase_units[0].invoice_id = invoiceid.value;
-        }
-      },
-
-      createOrder: function (data, actions) {
-        return actions.order.create({
-          purchase_units: purchase_units,
-        });
-      },
-
-      onApprove: function (data, actions) {
-        return actions.order.capture().then(function (details) {
-          alert('Transaction completed by ' + details.payer.name.given_name + '!');
-        });
-      },
-
-      onError: function (err) {
-        console.log(err);
+  
+  function checkout(cart, member_name, pay_fee, fee) {
+    if (!member_name) return;
+    let line_items = cart.items().map((batch) => {
+      return {
+        price: batch.item.stripe_id,
+        quantity: batch.quantity,
       }
-    }).render('#paypal-button-container');
+    })
+    if (pay_fee) { line_items.push({price: fee.stripe_id, quantity: 1}) }
+    stripe.redirectToCheckout({
+      clientReferenceId: member_name,
+      lineItems: line_items,
+      mode: 'payment',
+      successUrl: 'https://whitesburgpool.org/payment-success',
+      cancelUrl: 'https://whitesburgpool.org/payment-cancelled',
+    }).then(function (result) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+      console.log(result.error.message)
+    });
   }
-  initPayPalButton();
+
 </script>
