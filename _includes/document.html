@@ -1,10 +1,13 @@
-<a class="document" href="/docs/{{ include.filename }}.pdf">pdf <i class="far fa-file-pdf"></i></a>
+<a class="document" href="/docs/{{ include.filename }}.pdf"> {{ include.title | default: "pdf" }} <i
+    class="far fa-file-pdf"></i></a>
 {% assign docext = include.docext | default: "doc" %}
 {% unless include.nodoc %}
 or
-<a class="document" href="/docs/{{ include.filename }}.{{ docext }}">word doc <i class="far fa-file-word"></i></a>
+<a class="document" href="/docs/{{ include.filename }}.{{ docext }}">{{ include.title | default: "word doc" }} <i
+    class="far fa-file-word"></i></a>
 {% endunless %}
 {% if include.online %}
 or
-<a class="document" href="{{ include.online }}">online <i class="fas fa-laptop"></i></a>
+<a class="document" href="{{ include.online }}">{{ include.title | default: "online" }} <i
+    class="fas fa-laptop"></i></a>
 {% endif %}
