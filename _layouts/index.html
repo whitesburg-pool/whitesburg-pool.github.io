@@ -15,14 +15,70 @@
   <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
 
 <body class="{{ page.body_class | default:no-sidebar }}" x-data="{
-  cart: new Cart()
-}">
+  cart: new Cart(),
+  flashMsg: null,
+  flashLevel: 'info',
+  flash(msg, level = 'info') {
+    this.flashMsg = msg;
+    this.flashLevel = level;
+  },
+}" x-init="
+queryParams = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+flashMsg = queryParams.flashMsg;
+flashLevel = queryParams.flashLevel || 'info';
+">
   <div id="page-wrapper">
     {% include topbar.html %}
 
     {{ content }}
 
     {% include footer.html %}
+
+    <!-- flash message -->
+    <div x-show="flashMsg" x-data="{
+      color(what, level) {
+        levelColors = {
+          'info': 'cyan',
+          'success': 'green',
+          'warning': 'yellow',
+          'error': 'red'
+        };
+        return what + '-' + levelColors[flashLevel] + '-' + level
+      },
+      get faClasses() {
+        switch(flashLevel) {
+          case 'info': return 'fa-solid fa-circle-info'.split(' ');
+          case 'success': return 'fa-solid fa-circle-check'.split(' ');
+          case 'warning': return 'fa-solid fa-triangle-exclamation'.split(' ');
+          case 'error': return 'fa-solid fa-circle-xmark'.split(' ');
+          default: return 'fa-solid fa-circle-check'.split(' ');
+        }
+      }
+    }" @click="flashMsg = ''" class="fixed bottom-8 inset-x-8 max-w-4xl mx-auto rounded-md p-4"
+      :class="color('bg', 50)">
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <i :class="[color('text', 400), ...faClasses]"></i>
+        </div>
+        <div class="ml-3 flex items-center -mb-4">
+          <p class="text-sm font-medium" :class="color('text', 800)" x-text="flashMsg"></p>
+        </div>
+        <div class="ml-auto pl-3">
+          <div class="-mx-1.5 -my-1.5">
+            <button type="button" @click="flashMsg = ''"
+              class="inline-flex rounded-full p-1.5 focus:outline-none focus:ring-1 focus:ring-offset-2"
+              :class="[color('bg', 50), color('text', 500), color('hover:bg', 100), color('focus:ring', 600), color('focus:ring-offset', 50)]">
+              <span class="sr-only">Dismiss</span>
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
   {% include scripts.html %}
