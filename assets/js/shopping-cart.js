@@ -140,8 +140,12 @@ function calculate_fee(subtotal) {
 
 function get_processing_fee_item(amount) {
   let fee = calculate_fee(amount)
-  let item = processing_fee_items.find(item => item.amount < fee);
-  return new Item("stripe_processing_fee", "Stripe Processing Fee", item.amount, false, item.stripe_id)
+  let item = processing_fee_items.find(item => item.amount <= fee);
+  if (item) {
+    return new Item("stripe_processing_fee", "Stripe Processing Fee", item.amount, false, item.stripe_id);
+  } else {
+    return new Item("stripe_processing_fee", "Stripe Processing Fee", 0, false, null);
+  }
 }
 
 var stripe = Stripe('{{ site.data.stripe.api_key[site.data.stripe.mode] }}');
