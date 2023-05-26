@@ -32,7 +32,7 @@ title: Swim and Dive
             <img src="/images/city-meet.jpg" />
           </div>
 
-          <p>Swim and dive team registrations for the 2023 season will open on May 1st. For questions about
+          <p>Swim and dive team registrations for the 2023 season are now closed. For questions about
             swim team, or to be added to the mailing list, please email <a
               href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>.
             You can also check out the {% include document.html filename="Swim Meet Primer" title="Swim Team Primer"
@@ -40,11 +40,16 @@ title: Swim and Dive
             for more information about what to expect.
           </p>
 
-          <div class="flex flex-col space-y-2 mb-4">
-            <a class="w-80 cursor-pointer flex justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker"
-              href="{{site.data.links.swim_team_form}}">Register for Swim Team</a>
-            <a class="w-80 cursor-pointer flex justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker"
-              href="{{site.data.links.dive_team_form}}">Register for Dive Team</a>
+          <div class="flex flex-col space-y-2 mb-4" x-data="{
+            swim_registration_open: false,
+            dive_registration_open: true
+          }">
+            <a class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
+              x-bind:class="swim_registration_open ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
+              x-bind:href="swim_registration_open && '{{site.data.links.swim_team_form}}'">Register for Swim Team</a>
+            <a class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
+              x-bind:class="dive_registration_open ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
+              x-bind:href="dive_registration_open && '{{site.data.links.dive_team_form}}'">Register for Dive Team</a>
           </div>
 
           <a id="fees"></a>
