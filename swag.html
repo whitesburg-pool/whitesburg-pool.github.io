@@ -18,7 +18,7 @@ title: Order Swag
     numShirts: 0,
     shirt: inventory.get_item('shirt'),
     memberName: ''
-  }">
+  }" x-init="cart.clear()">
     <form class="max-w-2xl">
       <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
@@ -65,10 +65,8 @@ title: Order Swag
           <a :class="memberName && numShirts > 0 ? ['bg-brand', 'hover:bg-brand-darker', 'cursor-pointer'] : ['bg-gray-200', 'cursor-default']"
             class="flex items-center justify-center rounded-md border border-transparent px-6 py-3 mt-8 text-base font-medium text-white shadow-sm"
             roll="button" @click="if (memberName != '' && numShirts > 0) {
-                console.log({shirts: numShirts});
                 cart.set_item_quantity(shirt.sku, numShirts);
-                console.log(cart);
-                checkout(cart, memberName, false, 0);
+                cart.checkout(cart, memberName, false, 0);
               }">Checkout</a>
 
           <div x-cloak x-show="numShirts == 0 || memberName == ''" class="w-full text-sm text-red-500 font-medium">
@@ -78,32 +76,3 @@ title: Order Swag
     </form>
   </section>
 </article>
-
-<script>
-
-  function checkout(cart, member_name, pay_fee, fee) {
-    if (!member_name) return;
-    let line_items = cart.items().map((batch) => {
-      return {
-        price: batch.item.stripe_id,
-        quantity: batch.quantity,
-      }
-    })
-    console.log(line_items);
-    if (pay_fee) { line_items.push({ price: fee.stripe_id, quantity: 1 }) }
-    stripe.redirectToCheckout({
-      clientReferenceId: member_name,
-      lineItems: line_items,
-      mode: 'payment',
-      successUrl: 'https://whitesburgpool.org/payment-success',
-      cancelUrl: 'https://whitesburgpool.org/payment-cancelled',
-    }).then(function (result) {
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `result.error.message`.
-      console.log(result.error.message);
-      flash(result.error.message);
-    });
-  }
-
-</script>

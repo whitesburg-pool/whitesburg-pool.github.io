@@ -36,6 +36,10 @@ class Cart {
     localStorage.setItem('cart_contents', JSON.stringify(this.batches))
   }
 
+  clear() {
+    this.batches = []
+  }
+
   items() {
     return this.batches.map(batch => {
       return {
@@ -156,6 +160,30 @@ function get_processing_fee_item(amount) {
   } else {
     return new Item("stripe_processing_fee", "Stripe Processing Fee", 0, false, null);
   }
+}
+
+function checkout(cart, member_name, pay_fee, fee) {
+  if (!member_name) return;
+  let line_items = cart.items().map((batch) => {
+    return {
+      price: batch.item.stripe_id,
+      quantity: batch.quantity,
+    }
+  })
+  if (pay_fee) { line_items.push({ price: fee.stripe_id, quantity: 1 }) }
+  stripe.redirectToCheckout({
+    clientReferenceId: member_name,
+    lineItems: line_items,
+    mode: 'payment',
+    successUrl: 'https://whitesburgpool.org/payment-success',
+    cancelUrl: 'https://whitesburgpool.org/payment-cancelled',
+  }).then(function (result) {
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `result.error.message`.
+    console.log(result.error.message);
+    flash(result.error.message);
+  });
 }
 
 var stripe = Stripe('{{ site.data.stripe.api_key[site.data.stripe.mode] }}');
