@@ -66,7 +66,7 @@ title: Order Swag
             class="flex items-center justify-center rounded-md border border-transparent px-6 py-3 mt-8 text-base font-medium text-white shadow-sm"
             roll="button" @click="if (memberName != '' && numShirts > 0) {
                 cart.set_item_quantity(shirt.sku, numShirts);
-                cart.checkout(cart, memberName, false, 0);
+                checkout(cart, memberName, false, 0);
               }">Checkout</a>
 
           <div x-cloak x-show="numShirts == 0 || memberName == ''" class="w-full text-sm text-red-500 font-medium">
