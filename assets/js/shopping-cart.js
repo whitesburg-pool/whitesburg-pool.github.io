@@ -66,6 +66,16 @@ class Cart {
     this.save()
   }
 
+  set_item_quantity(sku, quantity) {
+    let existing_batch = this.batches.find(batch => batch.sku == sku)
+    if (existing_batch == undefined) {
+      this.batches.push({ sku: sku, quantity: quantity })
+    } else {
+      existing_batch.quantity = quantity
+    }
+    this.save()
+  }
+
   remove_item(item) {
     let idx = this.batches.findIndex(batch => batch.sku == item.sku)
     if (idx > -1) {

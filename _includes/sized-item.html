@@ -1,0 +1,28 @@
+<div x-data="{
+  item: inventory.get_item('{{ include.sku }}'),
+  size: null
+}" class="flex flex-col justify-between bg-gray-100 p-6 m-4">
+  <div class="font-medium" x-text="item.description"></div>
+  <div x-text="currency.format(item.price)"></div>
+  <div x-text="item.image"></div>
+  <div>
+    <label for="size" class="block text-sm font-medium leading-6 text-gray-900">Size</label>
+    <select id="size" name="size" x-on:change="size=$el.value"
+      class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+      <option value=""></option>
+      {% for size in include.sizes %}
+      <option value="{{size}}">{{ size }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div x-cloak x-show="size != null" x-on:click="cart.add_item(item.sku)" type="button"
+    class="w-max mt-4 cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker">
+    Add to Cart
+  </div>
+  <div x-cloak x-show="size == null" type="button"
+    class="w-max mt-4 cursor-not-allowed flex items-center justify-center rounded-md border border-transparent bg-gray-300 py-3 px-6 text-base font-medium text-white shadow-sm">
+    Add to Cart
+  </div>
+  <ul>
+  </ul>
+</div>

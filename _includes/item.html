@@ -1,9 +1,22 @@
-<div x-data="{item: inventory.get_item('{{ include.sku }}')}"
-  class="flex flex-col justify-between bg-gray-100 p-6 m-4">
+<div x-data="{item: inventory.get_item('{{ include.sku }}')}" class="flex flex-col justify-between bg-gray-100 p-6 m-4">
   <div class="font-medium" x-text="item.description"></div>
   <div x-text="currency.format(item.price)"></div>
   <div x-on:click="cart.add_item(item.sku)" type="button"
     class="w-max mt-4 cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker">
     Add to Cart
   </div>
+  {% unless include.options == empty %}
+  <div>
+    <label for="location" class="block text-sm font-medium leading-6 text-gray-900 sr-only">Option</label>
+    <select id="option" name="option"
+      class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+      <option></option>
+      {% for option in include.options %}
+      <option>{{ option }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endunless %}
+  <ul>
+  </ul>
 </div>
