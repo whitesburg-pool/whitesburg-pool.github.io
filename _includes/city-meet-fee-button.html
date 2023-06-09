@@ -1,0 +1,15 @@
+<div class="my-8">
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+  {% if site.data.stripe.mode == 'test' %}
+  <stripe-buy-button buy-button-id="buy_btn_1NFHW5K2rE6HoVznzi8NBckD"
+    publishable-key="pk_test_51LgusSK2rE6HoVznfrpgCZYAO0LwhUISI7MqloELUybUuBi4bo1DeNsokRnhehxYcBKcGLEiWdGvOLnShBYvT2bt005rugvSnh">
+    </stripe-buy-button>
+  {% else %}
+  <stripe-buy-button
+    buy-button-id="buy_btn_1NFI0nK2rE6HoVznvQJa3vFL"
+    publishable-key="pk_live_51LgusSK2rE6HoVzn95TudmrSWZ2gYyPnCUmY1aI45XNkNuNCiR8nsUdrI0MUdnPof25zu8aKF3d6d2e267LZBJy400Tv7cIByg"
+  >
+  </stripe-buy-button>
+  {% endif %}
+</div>
