@@ -3,22 +3,24 @@ layout: default
 title: Order Swag
 ---
 
-<article x-data="{}">
+<article x-data="{open: false}">
 
-  <header class="special container">
+  <header x-show="!open" class="special container">
+    <span class="icon fas fa-shirt"></span>
+    <h2>T-shirt orders for 2023 are now closed.</h2>
+  </header>
+
+  <header x-show="open" class="special container">
     <span class="icon fas fa-shirt"></span>
     <h2>Order Swag</h2>
     <p>Orders for 2023 are due by June 7!</p>
-    <p><strong>This page is for payment only</strong>. Shirt orders are being collected on <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSdd8cNyjFcC586WDP9_JtDspwfCSLJzmlPKoegXt8q78AVMWw/viewform">this
-        Google Form</a>.</p>
   </header>
 
-  <section class="wrapper style3 container flex flex-col" x-data="{
-    numShirts: 0,
-    shirt: inventory.get_item('shirt'),
-    memberName: ''
-  }" x-init="cart.clear()">
+  <section class="wrapper style3 container flex flex-col" x-show="open" x-data="{
+      numShirts: 0,
+      shirt: inventory.get_item('shirt'),
+      memberName: ''
+    }" x-init="cart.clear()">
     <form class="max-w-2xl">
       <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
