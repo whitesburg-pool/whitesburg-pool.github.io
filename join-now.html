@@ -98,8 +98,10 @@ title: Join Now
   </section>
 
   <section x-cloak x-show="member=='other'" class="wrapper style3 container flex flex-col">
-    <p>Membership form: {% include document.html nodoc=true filename="/docs/membership-form.pdf"
-      online="https://tally.so/r/mRGlxv" %}</p>
+    <p>Membership form:
+      <a href="{{ site.data.links.membership_form }}">online</a> or
+      <a href="{{ site.data.links.membership_form_pdf }}">PDF</a>.
+    </p>
     <div class="w-full grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       {% include item.html sku="trial_membership" %}
       {% include item.html sku="membership" %}
