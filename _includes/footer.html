@@ -1,8 +1,17 @@
 <footer id="footer">
 
+  <div class="max-w-2xl mx-auto text-left mb-8">
+    <h2 class="text-base text-center font-semibold leading-7 text-gray-900">Join Our Email List</h2>
+    {% include mailchimp_subscribe_form_main.html audienceId=site.data.mailchimp.audience_ids.main %}
+  </div>
+
   <p>
     610 Sanders Rd.<br>
-    Huntsville, AL 35802 <a href="https://goo.gl/maps/vEyRgwpskPN2" target="_blank" class="icon fa-map-marker-alt"></a>
+    Huntsville, AL 35802
+    <a
+      href="https://goo.gl/maps/vEyRgwpskPN2"
+      target="_blank"
+      class="icon fa-map-marker-alt"></a>
   </p>
   <p>
     256.883.5847<br>
@@ -10,17 +19,42 @@
   </p>
 
   <ul class="icons">
-    <li><a href="https://twitter.com/whitesburgpool"><i class="icon circle fab fa-twitter" data-fa-transform="shrink-8"></i></a></li>
-    <li><a href="https://www.facebook.com/pages/Whitesburg-Pool/157481787615975"><i class="icon circle fab fa-facebook" data-fa-transform="shrink-8"></i></a></li>
-    <li><a href="https://instagram.com/whitesburgpool"><i class="icon circle fab fa-instagram" data-fa-transform="shrink-8"></i></a></li>
-    <li><a href="mailto:info@whitesburgpool.org"><i class="icon circle far fa-envelope" data-fa-transform="shrink-8"></i></a></li>
+    <li>
+      <a href="https://twitter.com/whitesburgpool">
+        <i class="icon circle fab fa-twitter" data-fa-transform="shrink-8"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/pages/Whitesburg-Pool/157481787615975">
+        <i class="icon circle fab fa-facebook" data-fa-transform="shrink-8"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://instagram.com/whitesburgpool">
+        <i class="icon circle fab fa-instagram" data-fa-transform="shrink-8"></i>
+      </a>
+    </li>
+    <li>
+      <a href="mailto:info@whitesburgpool.org">
+        <i class="icon circle far fa-envelope" data-fa-transform="shrink-8"></i>
+      </a>
+    </li>
   </ul>
 
   <ul class="copyright">
-    <li>&copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Whitesburg Recreation Association</li>
-    <li>Design: Adapted from <a href="https://html5up.net/twenty">Twenty</a> via <a href="http://html5up.net">HTML5 UP</a> (CCA 3.0)</li>
-    <li><a href="mailto:webmaster@whitesburgpool.org">Website problems?</a></li>
+    <li>&copy;
+      <script type="text/javascript">
+        document.write(new Date().getFullYear());
+      </script>
+      Whitesburg Recreation Association</li>
+    <li>Design: Adapted from
+      <a href="https://html5up.net/twenty">Twenty</a>
+      via
+      <a href="http://html5up.net">HTML5 UP</a>
+      (CCA 3.0)</li>
+    <li>
+      <a href="mailto:webmaster@whitesburgpool.org">Website problems?</a>
+    </li>
   </ul>
 
 </footer>
-
