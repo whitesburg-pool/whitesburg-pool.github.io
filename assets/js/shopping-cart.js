@@ -64,7 +64,7 @@ class Cart {
     let existing_batch = this.batches.find(batch => batch.sku == sku)
     if (existing_batch == undefined) {
       this.batches.push({ sku: sku, quantity: 1 })
-    } else {
+    } else if(inventory.get_item(batch.sku).allow_multiple) {
       existing_batch.quantity += 1
     }
     this.save()
