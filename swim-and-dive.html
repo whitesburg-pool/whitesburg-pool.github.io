@@ -45,15 +45,17 @@ title: Swim and Dive
           </p>
 
           <div class="flex flex-col space-y-2 mb-4" x-data="{
-            swim_registration_open: false,
-            dive_registration_open: false
+            registrationOpenDate: new Date('2024-05-01T00:00:00-05:00'),
+            now: new Date(),
+            get swimRegistrationOpen() { return this.now >= this.registrationOpenDate },
+            get diveRegistrationOpen() { return this.now >= this.registrationOpenDate }
           }">
             <a class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
-              x-bind:class="swim_registration_open ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
-              x-bind:href="swim_registration_open && '{{site.data.links.swim_team_form}}'">Register for Swim Team</a>
+              x-bind:class="swimRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
+              x-bind:href="swimRegistrationOpen && '{{site.data.links.swim_team_form}}'">Register for Swim Team</a>
             <a class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
-              x-bind:class="dive_registration_open ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
-              x-bind:href="dive_registration_open && '{{site.data.links.dive_team_form}}'">Register for Dive Team</a>
+              x-bind:class="diveRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
+              x-bind:href="diveRegistrationOpen && '{{site.data.links.dive_team_form}}'">Register for Dive Team</a>
           </div>
 
           <a id="fees"></a>
