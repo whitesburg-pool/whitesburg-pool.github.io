@@ -4,7 +4,7 @@
         {% if include.include_late_fees %}
           let today = new Date();
           let this_year = today.getFullYear();
-          let late1 = new Date(`${this_year}-05-11T00:00:00-0500`);
+          let late1 = new Date(`${this_year}-05-15T00:00:00-0500`);
           let late2 = new Date(`${this_year}-06-02T00:00:00-0500`);
           if (today < late1) {
             return [];
@@ -45,8 +45,8 @@
 
         <div x-id="['couple']" class="cursor-pointer relative flex items-start">
           <div class="flex h-5 items-center">
-            <input :id="$id('couple')" aria-describedby="couple-description" :name="$id('dues_type')"
-              type="radio" x-on:change="dues_skus=['couples_dues']"
+            <input :id="$id('couple')" aria-describedby="couple-description" :name="$id('dues_type')" type="radio"
+              x-on:change="dues_skus=['couples_dues']"
               class="h-4 w-4 border-gray-300 text-brand focus:ring-brand-lighter">
           </div>
           <div class="ml-3 text-sm">
@@ -78,7 +78,7 @@
     </template>
   </div>
   <div x-on:click="skus.forEach(sku => cart.add_item(sku))" type="button"
-    class="ml-4 max-w-max cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker",
-    x-text="skus.length > 1 ? 'All all to cart' : 'Add to cart'">
+    class="ml-4 max-w-max cursor-pointer flex items-center justify-center rounded-md border border-transparent bg-brand py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-brand-darker"
+    , x-text="skus.length > 1 ? 'All all to cart' : 'Add to cart'">
   </div>
 </div>
