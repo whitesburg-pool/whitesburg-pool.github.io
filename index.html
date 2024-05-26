@@ -44,31 +44,39 @@ css: index
 </section>
 
 <!-- Main -->
-<article id="main">
+<article id="main" x-data="{
+    isSeason: false,
+    backToSchool: false,
+    init() {
+        const today = new Date();
+        const startSeason = new Date('2024-05-24');
+        const endSeason = new Date('2024-09-02');
+        const schoolStarts = new Date('2024-08-01');
+        this.isSeason = today >= startSeason && today <= endSeason;
+        this.backToSchool = today >= schoolStarts && today <= endSeason;
+    }
+}">
 
-  <header class="special container">
+  <header x-show="!isSeason" class="special container">
     <span class="icon fas fa-snowflake"></span>
     <h2>Closed for Winter</h2>
     <p>We will reopen Friday, May 24th, 2024</p>
   </header>
 
-  <!--
-  <header class="special container">
+  <header x-show="isSeason" class="special container">
     <span class="icon fa-solid fa-water-ladder"></span>
     <h2>Now Open</h2>
     <p>Come on in, the water's great!</p>
   </header>
-  -->
 
-  <header class="special container">
+  <header x-show="isSeason && !backToSchool" class="special container">
     <span class="icon fas fa-tint"></span>
     <h2>Regular Summer Hours</h2>
     <p>Monday - Saturday 11am - 8pm</p>
     <p>Sunday 1pm - 8pm</p>
   </header>
 
-  <!---
-  <header class="special container hours">
+  <header x-show="isSeason && backToSchool" class="special container hours">
     <span class="icon fas fa-tint"></span>
     <h2>Back-to-school Hours</h2>
     <p>Monday - Friday 4pm - 8pm</p>
@@ -76,7 +84,6 @@ css: index
     <p>Sunday 1pm - 8pm</p>
     <p>Monday, Sept 5 (Labor Day) 11am-8pm</p>
   </header>
-  -->
 
   <!-- Reasons To Join -->
   <section id="reasons-to-join" class="wrapper style3 container special">
