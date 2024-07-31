@@ -31,46 +31,35 @@ css: index
 
 </section>
 
-<section id="gofundme" class="cta">
-  <header>
-    <h2>Donate for a new pump</h2>
-    <p>Our aging pump desperately needs to be replaced. Help us fund this important project.</p>
-  </header>
-  <footer>
-    <div class="gfm-embed max-w-md h-[183px] overflow-hidden rounded-lg mx-auto"
-      data-url="https://www.gofundme.com/f/whitesburg-pool-new-pump/widget/medium?sharesheet=dashboard"></div>
-    <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
-  </footer>
-</section>
-
 <!-- Main -->
 <article id="main" x-data="{
     isSeason: false,
     backToSchool: false,
+    today: new Date(),
+    seasonStart: new Date('{{ site.data.dates.seasonStart }}'),
+    seasonEnd: new Date('{{ site.data.dates.seasonEnd }}'),
+    schoolStart: new Date('{{ site.data.dates.schoolStart }}'),
+    nextSeasonStart: new Date('{{ site.data.dates.nextSeasonStart }}'),
     init() {
-        const today = new Date();
-        const startSeason = new Date('2024-05-24');
-        const endSeason = new Date('2024-09-02');
-        const schoolStarts = new Date('2024-08-01');
-        this.isSeason = today >= startSeason && today <= endSeason;
-        this.backToSchool = today >= schoolStarts && today <= endSeason;
+        this.isSeason = this.today >= this.seasonStart && this.today <= this.seasonEnd;
+        this.backToSchool = this.today >= this.startSchool && this.today <= this.seasonEnd;
+    },
+    formatDate(date) {
+      var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString('en-US', options);
     }
 }">
 
   <header x-show="!isSeason" class="special container">
     <span class="icon fas fa-snowflake"></span>
     <h2>Closed for Winter</h2>
-    <p>We will reopen Friday, May 24th, 2024</p>
-  </header>
-
-  <header x-show="isSeason" class="special container">
-    <span class="icon fa-solid fa-water-ladder"></span>
-    <h2>Now Open</h2>
-    <p>Come on in, the water's great!</p>
+    <p>We will reopen <time x-text="formatDate(nextSeasonStart)" /></p>
   </header>
 
   <header x-show="isSeason && !backToSchool" class="special container">
     <span class="icon fas fa-tint"></span>
+    <h2>Now Open</h2>
+    <p>Come on in, the water's great!</p>
     <h2>Regular Summer Hours</h2>
     <p>Monday - Saturday 11am - 8pm</p>
     <p>Sunday 1pm - 8pm</p>
