@@ -28,6 +28,14 @@
 <!-- Stripe -->
 <script src="https://js.stripe.com/v3/"></script>
 
+<!-- Luxon date/time library -->
+<script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+<script>
+  function parseDate(dateString) {
+    return luxon.DateTime.fromISO(dateString, { zone: 'America/Chicago' });
+  }
+</script>
+
 <title>Whitesburg Pool, Huntsville, AL - {{ page.title }} </title>
 
 <meta charset="utf-8" />

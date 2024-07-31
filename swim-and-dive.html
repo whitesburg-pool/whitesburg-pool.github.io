@@ -2,29 +2,39 @@
 layout: default
 title: Swim and Dive
 ---
-<section id="swim-and-dive" class="cta mb-8">
-  <header>
-    <h2>Pay City Meet Fees</h2>
-    <p>City Meet Fees are due by Tues, July 9th.</p>
-  </header>
-  <footer>
-    <ul class="buttons">
-      <li><a href="https://whitesburgpool.square.site/product/city-meet-fee/35" class="button special">Purchase on
-          Square</a></li>
-    </ul>
-  </footer>
-</section>
+{% if site.data.dates.showCityMeetFeePurchase %}
+  <section id="swim-and-dive" class="cta mb-8">
+    <header>
+      <h2>Pay City Meet Fees</h2>
+      <p>City Meet Fees are due by {% include datetime.html date=site.data.dates.cityMeetFeeDeadline %}.</p>
+    </header>
+    <footer>
+      <ul class="buttons">
+        <li>
+          <a href="https://whitesburgpool.square.site/product/city-meet-fee/35" class="button special">Purchase on      
+          Square</a>
+        </li>
+      </ul>
+    </footer>
+  </section>
+{% endif %}
 
 <header class="special container">
   <span class="icon fas fa-tint"></span>
-  <h2><strong>Whitesburg Tide</strong> Swim & Dive Teams</h2>
-  <p>Any area youth from age 4 to 17 are invited to join the Whitesburg Tide swim and dive
-    teams! We're part of the <a href="http://swimrcsl.org/">Rocket City Swim and Dive
-      League</a> and swimmers and divers of any skill level are welcome. Whether you're super
+  <h2>
+    <strong>Whitesburg Tide</strong>
+    Swim & Dive Teams</h2>
+  <p>Any area youth from age 4 to 17 are invited to join the Whitesburg Tide swim and dive      
+    teams! We're part of the
+    <a href="http://swimrcsl.org/">Rocket City Swim and Dive      
+      League</a>
+    and swimmers and divers of any skill level are welcome. Whether you're super      
     competitive or just learning, our awesome coaches will have you setting PRs in no time...
     all while having fun with your friends at the pool!</p>
   <h2>Questions?</h2>
-  <p>Email <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a></p>
+  <p>Email
+    <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>
+  </p>
   <h2 class="text-center">Join the Swim Team Email List</h2>
   <div class="max-w-2xl mx-auto text-left">
     {% include mailchimp_subscribe_form_main.html audienceId=site.data.mailchimp.audience_ids.swimteam %}
@@ -48,10 +58,10 @@ title: Swim and Dive
             <img src="/images/city-meet.jpg" />
           </div>
 
-          <p>Swim and dive team registrations for the 2024 season are now open. For questions about
-            swim team, please email <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>.
-            You can also check out the {% include document.html filename="Swim Meet Primer" title="Swim Team Primer"
-            nodoc=true %} for more information about what to expect.
+          <p>Swim and dive team registrations for the 2024 season are now open. For questions about      
+            swim team, please email
+            <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>.      
+            You can also check out the {% include document.html filename="Swim Meet Primer" title="Swim Team Primer" nodoc=true %} for more information about what to expect.
           </p>
 
           <div class="flex flex-col space-y-2 mb-4" x-data="{
@@ -60,38 +70,57 @@ title: Swim and Dive
             get swimRegistrationOpen() { return this.now >= this.registrationOpenDate },
             get diveRegistrationOpen() { return this.now >= this.registrationOpenDate }
           }">
-            <a class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
+            <a
+              class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
               x-bind:class="swimRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
               x-bind:href="swimRegistrationOpen && '{{site.data.links.swim_team_form}}'">Register for Swim Team</a>
-            <a class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
+            <a
+              class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
               x-bind:class="diveRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
               x-bind:href="diveRegistrationOpen && '{{site.data.links.dive_team_form}}'">Register for Dive Team</a>
           </div>
 
           <a id="fees"></a>
           <h3>Fees</h3>
-          <p>Swim team fees include one t-shirt per swimmer. Dive fees do not include a t-shirt. Swim
+          <p>Swim team fees include one t-shirt per swimmer. Dive fees do not include a t-shirt. Swim      
             caps and extra shirts can be purchased at an additional cost if desired.</p>
 
           <p>If you aren't a full pool member, you'll need to purchase a swim/dive team membership
-            <strong class="italic font-normal">in addition to</strong> the team fees shown below. You
-            may also consider getting a <a href="/join-now.html">trial membership</a> instead, which
+            <strong class="italic font-normal">in addition to</strong>
+            the team fees shown below. You      
+            may also consider getting a
+            <a href="/join-now.html">trial membership</a>
+            instead, which      
             will allow your whole family to come to the pool all summer long.
           </p>
 
           <h4>Swim Team</h4>
           <ul class="default">
-            <li><span class="font-medium">1 swimmer:</span> $130</li>
-            <li><span class="font-medium">2 swimmers:</span> $210</li>
-            <li><span class="font-medium">3 swimmers:</span> $280</li>
-            <li><span class="font-medium">Each additional swimmer after 3:</span> $15</li>
+            <li>
+              <span class="font-medium">1 swimmer:</span>
+              $130</li>
+            <li>
+              <span class="font-medium">2 swimmers:</span>
+              $210</li>
+            <li>
+              <span class="font-medium">3 swimmers:</span>
+              $280</li>
+            <li>
+              <span class="font-medium">Each additional swimmer after 3:</span>
+              $15</li>
           </ul>
 
           <h4>Dive Team</h4>
           <ul class="default">
-            <li><span class="font-medium">1 diver:</span> $80</li>
-            <li><span class="font-medium">2 divers:</span> $105</li>
-            <li><span class="font-medium">3+ divers:</span> $125</li>
+            <li>
+              <span class="font-medium">1 diver:</span>
+              $80</li>
+            <li>
+              <span class="font-medium">2 divers:</span>
+              $105</li>
+            <li>
+              <span class="font-medium">3+ divers:</span>
+              $125</li>
           </ul>
 
           <h4>Swim/Dive Team-only Pool Membership</h4>
@@ -116,12 +145,19 @@ title: Swim and Dive
           </header>
 
           <ul class="default">
-            <li>Registration opens <span class="font-medium">Wednesday, May 1st</span></li>
-            <li>After-school practice (returning swimmers only) <span class="font-medium">May 20-22</span></li>
-            <li>New swimmer evaluations and parent meeting <span class="font-medium">Wednesday, May 22, 6:00-8:00
+            <li>Registration opens
+              <span class="font-medium">Wednesday, May 1st</span>
+            </li>
+            <li>After-school practice (returning swimmers only)
+              <span class="font-medium">May 20-22</span>
+            </li>
+            <li>New swimmer evaluations and parent meeting
+              <span class="font-medium">Wednesday, May 22, 6:00-8:00      
                 PM</span>
             </li>
-            <li>Regular practices every weekday morning beginning <span class="font-medium">Friday, May 24</span></li>
+            <li>Regular practices every weekday morning beginning
+              <span class="font-medium">Friday, May 24</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -175,7 +211,9 @@ title: Swim and Dive
         <h2>Dive Team Schedule 2024</h2>
       </header>
       <ul class="default">
-        <li>Registration opens <span class="font-medium">Wednesday, May 1st</span></li>
+        <li>Registration opens
+          <span class="font-medium">Wednesday, May 1st</span>
+        </li>
       </ul>
       <table>
         <caption>2024 Dive Meet Schedule</caption>

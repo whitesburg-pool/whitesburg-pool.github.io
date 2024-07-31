@@ -1,0 +1,7 @@
+<time x-data="{
+{% if include.date %}
+  date: new luxon.DateTime.fromISO('{{ include.date }}', {zone: 'America/Chicago'}),
+{% else %}
+  date: new luxon.DateTime.now(),
+{% endif %}
+}" x-text="date.toLocaleString({{ include.format | default: "luxon.DateTime.DATE_HUGE" }})"></time>

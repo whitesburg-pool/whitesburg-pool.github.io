@@ -35,25 +35,21 @@ css: index
 <article id="main" x-data="{
     isSeason: false,
     backToSchool: false,
-    today: new Date(),
-    seasonStart: new Date('{{ site.data.dates.seasonStart }}'),
-    seasonEnd: new Date('{{ site.data.dates.seasonEnd }}'),
-    schoolStart: new Date('{{ site.data.dates.schoolStart }}'),
-    nextSeasonStart: new Date('{{ site.data.dates.nextSeasonStart }}'),
+    today: luxon.DateTime.now(),
+    seasonStart: parseDate('{{ site.data.dates.seasonStart }}'),
+    seasonEnd: parseDate('{{ site.data.dates.seasonEnd }}'),
+    schoolStart: parseDate('{{ site.data.dates.schoolStart }}'),
+    nextSeasonStart: parseDate('{{ site.data.dates.nextSeasonStart }}'),
     init() {
         this.isSeason = this.today >= this.seasonStart && this.today <= this.seasonEnd;
-        this.backToSchool = this.today >= this.startSchool && this.today <= this.seasonEnd;
-    },
-    formatDate(date) {
-      var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      return date.toLocaleDateString('en-US', options);
+        this.backToSchool = this.today >= this.schoolStart && this.today <= this.seasonEnd;
     }
 }">
 
   <header x-show="!isSeason" class="special container">
     <span class="icon fas fa-snowflake"></span>
     <h2>Closed for Winter</h2>
-    <p>We will reopen <time x-text="formatDate(nextSeasonStart)" /></p>
+    <p>We will reopen {% include datetime.html date=site.data.dates.nextSeasonStart %}</p>
   </header>
 
   <header x-show="isSeason && !backToSchool" class="special container">
@@ -71,7 +67,7 @@ css: index
     <p>Monday - Friday 4pm - 8pm</p>
     <p>Saturday 11am - 8pm</p>
     <p>Sunday 1pm - 8pm</p>
-    <p>Monday, Sept 5 (Labor Day) 11am-8pm</p>
+    <p>Labor Day 11am-8pm</p>
   </header>
 
   <!-- Reasons To Join -->
