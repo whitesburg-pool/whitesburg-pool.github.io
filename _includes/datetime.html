@@ -4,4 +4,4 @@
 {% else %}
   date: new luxon.DateTime.now(),
 {% endif %}
-}" x-text="date.toLocaleString({{ include.format | default: "luxon.DateTime.DATE_HUGE" }})"></time>
+}" x-text="date.toFormat('{{ include.format | default: "DDDD" }}')"></time>

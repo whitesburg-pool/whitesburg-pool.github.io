@@ -8,28 +8,38 @@ title: Employment
   <h2>Employment Information</h2>
 </header>
 
-<section class="container">
+<section class="container" x-data="{
+  now: luxon.DateTime.now(),
+  get applicationsOpen() { return this.now.month >= 3 && this.now.month <= 5 },
+}">
   <p>Working at Whitesburg Pool is a great summer job! We have a fantastic staff who work together
     to make our pool great.</p>
 
-  <p>We are now accepting applications for the summer of 2024. Applications are due by May 15th. We are hiring:</p>
+  <p x-show="!applicationsOpen">Applications for the <span x-text="now.year"></span> season are now officially closed,
+    but we're always looking for great people to join our team. Feel free to reach out to us at <a
+      href="mailto:employment@whitesburgpool.org">employment@whitesburgpool.org</a> or check back next year!
+    Applications open in March.</p>
 
-  <ul class="default">
-    <li>Pool Manager</li>
-    <li>Assistant Pool Manager</li>
-    <li>Lifeguards</li>
-    <li>Assistant Swim Team Coaches</li>
-  </ul>
+  <div x-show="applicationsOpen">
+    <p>We are now accepting applications for the summer of <span x-text="now.year"></span>.
+      Applications are due by May 15th. We are hiring:</p>
 
-  <p>To apply, fill out the form online (preferred): <a href="https://tally.so/r/mBaN6Y">Online Employment
-      Application</a></p>
+    <ul class=" default">
+      <li>Pool Manager</li>
+      <li>Assistant Pool Manager</li>
+      <li>Lifeguards</li>
+      <li>Assistant Swim Team Coaches</li>
+    </ul>
 
-  <p>Alternately, you can use the form below and either email it to <a href="mailto:employment@whitesburgpool.org">
-      employment@whitesburgpool.org</a> or mail it to 610
-    Sanders Rd., Huntsville, Alabama 35802.</p>
+    <p>To apply, fill out the form online (preferred): <a href="https://tally.so/r/mBaN6Y">Online Employment
+        Application</a></p>
 
-  <p id="employment-form"><strong>Employment Form:</strong>
-    {% include document.html filename="WRA_employment_application" %}
-  </p>
+    <p>Alternately, you can use the form below and either email it to <a href="mailto:employment@whitesburgpool.org">
+        employment@whitesburgpool.org</a> or mail it to 610
+      Sanders Rd., Huntsville, Alabama 35802.</p>
 
+    <p id="employment-form"><strong>Employment Form:</strong>
+      {% include document.html filename="WRA_employment_application" %}
+    </p>
+  </div>
 </section>
