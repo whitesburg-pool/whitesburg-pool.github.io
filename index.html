@@ -49,7 +49,7 @@ css: index
   <header x-show="!isSeason" class="special container">
     <span class="icon fas fa-snowflake"></span>
     <h2>Closed for Winter</h2>
-    <p>We will reopen {% include datetime.html date=site.data.dates.nextSeasonStart %}</p>
+    <p>We will reopen {% include datetime.html date=site.data.dates.season.nextSeasonStart %}</p>
   </header>
 
   <header x-show="isSeason && !backToSchool" class="special container">
