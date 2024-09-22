@@ -36,10 +36,10 @@ css: index
     isSeason: false,
     backToSchool: false,
     today: luxon.DateTime.now(),
-    seasonStart: parseDate('{{ site.data.dates.seasonStart }}'),
-    seasonEnd: parseDate('{{ site.data.dates.seasonEnd }}'),
-    schoolStart: parseDate('{{ site.data.dates.schoolStart }}'),
-    nextSeasonStart: parseDate('{{ site.data.dates.nextSeasonStart }}'),
+    seasonStart: parseDate('{{ site.data.dates.season.start }}'),
+    seasonEnd: parseDate('{{ site.data.dates.season.end }}'),
+    schoolStart: parseDate('{{ site.data.dates.season.schoolStart }}'),
+    nextSeasonStart: parseDate('{{ site.data.dates.season.nextSeasonStart }}'),
     init() {
         this.isSeason = this.today >= this.seasonStart && this.today <= this.seasonEnd;
         this.backToSchool = this.today >= this.schoolStart && this.today <= this.seasonEnd;

@@ -1,9 +1,47 @@
-# YYYY-MM-DD
-seasonStart: "2024-05-24"
-seasonEnd: "2024-09-02"
-schoolStart: "2024-08-01"
-nextSeasonStart: "2025-05-23"
+# all dates in format: YYYY-MM-DD
 
-# Swim Team
-showCityMeetFeePurchase: true
-cityMeetFeeDeadline: "2024-07-09"
+season:
+  start: "2024-05-24"
+  end: "2024-09-02"
+  schoolStart: "2024-08-01"
+  nextSeasonStart: "2025-05-23"
+
+swimTeam:
+  showCityMeetFeePurchase: false
+  cityMeetFeeDeadline: "2024-07-09"
+  registrationStart: "2024-05-14"
+  registrationEnd: "2024-05-24"
+  afterSchoolPractice: "May 20-22"
+  newSwimmerEvals: "2024-05-22T18:00"
+  regularPracticesStart: "2024-05-24"
+  cityMeetSaturday: "2024-07-13"
+  meets:
+    - date: "2024-06-05"
+      vs: "Jones Valley"
+      home: false
+    - date: "2024-06-12"
+      vs: "Blossomwood"
+      home: true
+    - date: "2024-06-19"
+      vs: "Greenwick"
+      home: true
+    - date: "2024-06-26"
+      vs: "Monte Sano"
+      home: false
+    - date: "2024-07-03"
+      vs: "Lily Flagg"
+      home: false
+
+diveTeam:
+  registrationStart: "2024-05-14"
+  registrationEnd: "2024-05-24"
+  meets:
+    - date: "2024-06-10"
+      vs: "Monte Sano"
+      home: true
+    - date: "2024-06-17"
+      vs: "Blossomwood"
+      home: false
+    - date: "2024-06-24"
+      vs: "Camelot"
+      home: true

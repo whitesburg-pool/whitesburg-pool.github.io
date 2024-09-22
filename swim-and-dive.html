@@ -11,7 +11,7 @@ title: Swim and Dive
     <footer>
       <ul class="buttons">
         <li>
-          <a href="https://whitesburgpool.square.site/product/city-meet-fee/35" class="button special">Purchase on      
+          <a href="https://whitesburgpool.square.site/product/city-meet-fee/35" class="button special">Purchase on                                              
           Square</a>
         </li>
       </ul>
@@ -23,14 +23,16 @@ title: Swim and Dive
   <span class="icon fas fa-tint"></span>
   <h2>
     <strong>Whitesburg Tide</strong>
-    Swim & Dive Teams</h2>
-  <p>Any area youth from age 4 to 17 are invited to join the Whitesburg Tide swim and dive      
+    Swim & Dive Teams
+  </h2>
+  <p>Any area youth from age 4 to 17 are invited to join the Whitesburg Tide swim and dive                                              
     teams! We're part of the
-    <a href="http://swimrcsl.org/">Rocket City Swim and Dive      
+    <a href="http://swimrcsl.org/">Rocket City Swim and Dive                                              
       League</a>
-    and swimmers and divers of any skill level are welcome. Whether you're super      
+    and swimmers and divers of any skill level are welcome. Whether you're super                                              
     competitive or just learning, our awesome coaches will have you setting PRs in no time...
-    all while having fun with your friends at the pool!</p>
+    all while having fun with your friends at the pool!
+  </p>
   <h2>Questions?</h2>
   <p>Email
     <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>
@@ -49,7 +51,15 @@ title: Swim and Dive
   <div class="content">
     <section>
       <div class="">
-        <div class="">
+        <div class="" x-data="{
+          now: luxon.DateTime.now(),
+          swimRegistrationStart: parseDate('{{ site.data.dates.swimTeam.registrationStart }}'),
+          swimRegistrationEnd: parseDate('{{ site.data.dates.swimTeam.registrationEnd }}'),
+          diveRegistrationStart: parseDate('{{ site.data.dates.diveTeam.registrationStart }}'),
+          diveRegistrationEnd: parseDate('{{ site.data.dates.diveTeam.registrationEnd }}'),
+          get swimRegistrationOpen() { return this.now >= this.swimRegistrationStart && this.now <= this.swimRegistrationEnd },
+          get diveRegistrationOpen() { return this.now >= this.diveRegistrationStart && this.now <= this.diveRegistrationEnd }
+        }">
           <header>
             <h2>How to Join</h2>
           </header>
@@ -58,18 +68,16 @@ title: Swim and Dive
             <img src="/images/city-meet.jpg" />
           </div>
 
-          <p>Swim and dive team registrations for the 2024 season are now open. For questions about      
-            swim team, please email
-            <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>.      
+          <p>Swim and dive team registrations for the
+            <span x-text="now.year"></span>
+            season are
+            <span x-text="swimRegistrationOpen ? 'now open' : 'closed'"></span>.                                              
+            For questions about swim team, please email
+            <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>.                                              
             You can also check out the {% include document.html filename="Swim Meet Primer" title="Swim Team Primer" nodoc=true %} for more information about what to expect.
           </p>
 
-          <div class="flex flex-col space-y-2 mb-4" x-data="{
-            registrationOpenDate: new Date('2024-05-01T00:00:00-05:00'),
-            now: new Date(),
-            get swimRegistrationOpen() { return this.now >= this.registrationOpenDate },
-            get diveRegistrationOpen() { return this.now >= this.registrationOpenDate }
-          }">
+          <div class="flex flex-col space-y-2 mb-4">
             <a
               class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
               x-bind:class="swimRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
@@ -82,15 +90,15 @@ title: Swim and Dive
 
           <a id="fees"></a>
           <h3>Fees</h3>
-          <p>Swim team fees include one t-shirt per swimmer. Dive fees do not include a t-shirt. Swim      
+          <p>Swim team fees include one t-shirt per swimmer. Dive fees do not include a t-shirt. Swim                                              
             caps and extra shirts can be purchased at an additional cost if desired.</p>
 
           <p>If you aren't a full pool member, you'll need to purchase a swim/dive team membership
             <strong class="italic font-normal">in addition to</strong>
-            the team fees shown below. You      
+            the team fees shown below. You                                              
             may also consider getting a
             <a href="/join-now.html">trial membership</a>
-            instead, which      
+            instead, which                                              
             will allow your whole family to come to the pool all summer long.
           </p>
 
@@ -98,29 +106,36 @@ title: Swim and Dive
           <ul class="default">
             <li>
               <span class="font-medium">1 swimmer:</span>
-              $130</li>
+              $130
+            </li>
             <li>
               <span class="font-medium">2 swimmers:</span>
-              $210</li>
+              $210
+            </li>
             <li>
               <span class="font-medium">3 swimmers:</span>
-              $280</li>
+              $280
+            </li>
             <li>
               <span class="font-medium">Each additional swimmer after 3:</span>
-              $15</li>
+              $15
+            </li>
           </ul>
 
           <h4>Dive Team</h4>
           <ul class="default">
             <li>
               <span class="font-medium">1 diver:</span>
-              $80</li>
+              $80
+            </li>
             <li>
               <span class="font-medium">2 divers:</span>
-              $105</li>
+              $105
+            </li>
             <li>
               <span class="font-medium">3+ divers:</span>
-              $125</li>
+              $125
+            </li>
           </ul>
 
           <h4>Swim/Dive Team-only Pool Membership</h4>
@@ -132,7 +147,10 @@ title: Swim and Dive
 </section>
 
 <!-- Swim Team Schedule -->
-<section class="wrapper style4 container">
+<section class="wrapper style4 container" x-data="{
+  now: luxon.DateTime.now(),
+  cityMeetStart: parseDate('{{ site.data.dates.swimTeam.cityMeetSaturday }}')
+}">
   <div class="content">
     <section>
       <div class="row">
@@ -141,60 +159,53 @@ title: Swim and Dive
         </div>
         <div class="9u 12u(narrower)">
           <header>
-            <h2>Swim Team Schedule 2024</h2>
+            <h2>Swim Team Schedule
+              <span x-text="now.year"></span>
+            </h2>
           </header>
 
           <ul class="default">
             <li>Registration opens
-              <span class="font-medium">Wednesday, May 1st</span>
+              <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.registrationStart format="EEE, MMM d" %}</span>
             </li>
             <li>After-school practice (returning swimmers only)
-              <span class="font-medium">May 20-22</span>
+              <span class="font-medium">{{ site.data.dates.swimTeam.afterSchoolPractice }}</span>
             </li>
             <li>New swimmer evaluations and parent meeting
-              <span class="font-medium">Wednesday, May 22, 6:00-8:00      
-                PM</span>
+              <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.newSwimmerEvals format="EEE, MMM d, ha" %}</span>
             </li>
             <li>Regular practices every weekday morning beginning
-              <span class="font-medium">Friday, May 24</span>
+              <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.regularPracticesStart format="EEE, MMM d" %}</span>
             </li>
           </ul>
         </div>
       </div>
       <table>
-        <caption>2024 Swim Meet Schedule</caption>
+        <caption>
+          <span x-text="now.year"></span>
+          Swim Meet Schedule</caption>
         <tr>
           <th>Date</th>
           <th>vs.</th>
           <th>Location</th>
         </tr>
+        {% for meet in site.data.dates.swimTeam.meets %}
+          <tr>
+            <td>{% include datetime.html date=meet.date format="MMM d" %}</td>
+            <td>{{ meet.vs }}</td>
+            <td>
+              {% if meet.home %}
+                Whitesburg
+              {% else %}
+                {{ meet.vs }}
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
         <tr>
-          <td>June 5</td>
-          <td>Jones Valley</td>
-          <td>Jones Valley</td>
-        </tr>
-        <tr>
-          <td>June 12</td>
-          <td>Blossomwood</td>
-          <td>Whitesburg</td>
-        </tr>
-        <tr>
-          <td>June 19</td>
-          <td>Greenwick</td>
-          <td>Whitesburg</td>
-        </tr>
-        <tr>
-          <td>June 26</td>
-          <td>Monte Sano</td>
-          <td>Monte Sano</td>
-        </tr>
-        <tr>
-          <td>July 3</td>
-          <td>Lily Flagg</td>
-          <td>Lily Flagg</td>
-        </tr>
-        <tr>
-          <td>July 13-14</td>
+          <td>
+            <span x-text="`${cityMeetStart.toFormat('MMM d')}-${cityMeetStart.plus({days: 1}).toFormat('d')}`"></span>
+          </td>
           <td>City Meet</td>
           <td>Huntsville Aquatics Center</td>
         </tr>
@@ -204,41 +215,48 @@ title: Swim and Dive
 </section>
 
 <!-- Dive team schedule -->
-<section class="wrapper style4 container">
+<section class="wrapper style4 container" x-data="{
+  now: luxon.DateTime.now(),
+  cityMeetStart: parseDate('{{ site.data.dates.swimTeam.cityMeetSaturday }}').plus({days: -2})
+}">
   <div class="content">
     <section>
       <header>
-        <h2>Dive Team Schedule 2024</h2>
+        <h2>Dive Team Schedule
+          <span x-text="now.year"></span>
+        </h2>
       </header>
       <ul class="default">
         <li>Registration opens
-          <span class="font-medium">Wednesday, May 1st</span>
+          <span class="font-medium">{% include datetime.html date=site.data.dates.diveTeam.registrationStart %}</span>
         </li>
       </ul>
       <table>
-        <caption>2024 Dive Meet Schedule</caption>
+        <caption>
+          <span x-text="now.year"></span>
+          Dive Meet Schedule</caption>
         <tr>
           <th>Date</th>
           <th>vs.</th>
           <th>Location</th>
         </tr>
+        {% for meet in site.data.dates.diveTeam.meets %}
+          <tr>
+            <td>{% include datetime.html date=meet.date format="MMM d" %}</td>
+            <td>{{ meet.vs }}</td>
+            <td>
+              {% if meet.home %}
+                Whitesburg
+              {% else %}
+                {{ meet.vs }}
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
         <tr>
-          <td>June 10</td>
-          <td>Monte Sano</td>
-          <td>Whitesburg</td>
-        </tr>
-        <tr>
-          <td>June 17</td>
-          <td>Blossomwood</td>
-          <td>Blossomwood</td>
-        </tr>
-        <tr>
-          <td>June 24</td>
-          <td>Camelot</td>
-          <td>Whitesburg</td>
-        </tr>
-        <tr>
-          <td>July 11-12</td>
+          <td>
+            <span x-text="`${cityMeetStart.toFormat('MMM d')}-${cityMeetStart.plus({days: 1}).toFormat('d')}`"></span>
+          </td>
           <td>City Meet</td>
           <td>Huntsville Aquatics Center</td>
         </tr>
