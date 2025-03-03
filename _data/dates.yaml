@@ -1,9 +1,11 @@
 # all dates in format: YYYY-MM-DD
 
 season:
-  start: "2024-05-24"
-  end: "2024-09-02"
-  schoolStart: "2024-08-01"
+  # Update these sometime after the end of one season and before the start of the next
+  start: "2025-05-23"
+  end: "2025-09-01"
+  schoolStart: "2025-08-04"
+  # Update this one sometime during the season
   nextSeasonStart: "2025-05-23"
 
 swimTeam:
