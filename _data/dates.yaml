@@ -8,29 +8,29 @@ season:
 
 swimTeam:
   showCityMeetFeePurchase: false
-  cityMeetFeeDeadline: "2024-07-09"
-  registrationStart: "2024-05-14"
-  registrationEnd: "2024-05-24"
-  afterSchoolPractice: "May 20-22"
-  newSwimmerEvals: "2024-05-22T18:00"
-  regularPracticesStart: "2024-05-24"
-  cityMeetSaturday: "2024-07-13"
+  cityMeetFeeDeadline: "2025-07-09"
+  registrationStart: "2025-03-17"
+  registrationEnd: "2026-05-22"
+  afterSchoolPractice: "May 19-21"
+  newSwimmerEvals: "2025-05-21T18:00"
+  regularPracticesStart: "2025-05-22"
+  cityMeetSaturday: "2025-07-12"
   meets:
-    - date: "2024-06-05"
+    - date: "2025-06-04"
       vs: "Jones Valley"
-      home: false
-    - date: "2024-06-12"
-      vs: "Blossomwood"
       home: true
-    - date: "2024-06-19"
-      vs: "Greenwick"
-      home: true
-    - date: "2024-06-26"
+    - date: "2025-06-11"
       vs: "Monte Sano"
       home: false
-    - date: "2024-07-03"
-      vs: "Lily Flagg"
+    - date: "2025-06-18"
+      vs: "Blossomwood"
       home: false
+    - date: "2025-06-25"
+      vs: "Greenwick"
+      home: true
+    - date: "2025-07-02"
+      vs: "Lily Flagg"
+      home: true
 
 diveTeam:
   registrationStart: "2024-05-14"

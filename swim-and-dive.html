@@ -3,20 +3,20 @@ layout: default
 title: Swim and Dive
 ---
 {% if site.data.dates.showCityMeetFeePurchase %}
-  <section id="swim-and-dive" class="cta mb-8">
-    <header>
-      <h2>Pay City Meet Fees</h2>
-      <p>City Meet Fees are due by {% include datetime.html date=site.data.dates.cityMeetFeeDeadline %}.</p>
-    </header>
-    <footer>
-      <ul class="buttons">
-        <li>
-          <a href="https://whitesburgpool.square.site/product/city-meet-fee/35" class="button special">Purchase on                                              
+<section id="swim-and-dive" class="cta mb-8">
+  <header>
+    <h2>Pay City Meet Fees</h2>
+    <p>City Meet Fees are due by {% include datetime.html date=site.data.dates.cityMeetFeeDeadline %}.</p>
+  </header>
+  <footer>
+    <ul class="buttons">
+      <li>
+        <a href="https://whitesburgpool.square.site/product/city-meet-fee/35" class="button special">Purchase on
           Square</a>
-        </li>
-      </ul>
-    </footer>
-  </section>
+      </li>
+    </ul>
+  </footer>
+</section>
 {% endif %}
 
 <header class="special container">
@@ -25,11 +25,11 @@ title: Swim and Dive
     <strong>Whitesburg Tide</strong>
     Swim & Dive Teams
   </h2>
-  <p>Any area youth from age 4 to 17 are invited to join the Whitesburg Tide swim and dive                                              
+  <p>Any area youth from age 4 to 17 are invited to join the Whitesburg Tide swim and dive
     teams! We're part of the
-    <a href="http://swimrcsl.org/">Rocket City Swim and Dive                                              
+    <a href="http://swimrcsl.org/">Rocket City Swim and Dive
       League</a>
-    and swimmers and divers of any skill level are welcome. Whether you're super                                              
+    and swimmers and divers of any skill level are welcome. Whether you're super
     competitive or just learning, our awesome coaches will have you setting PRs in no time...
     all while having fun with your friends at the pool!
   </p>
@@ -69,36 +69,42 @@ title: Swim and Dive
           </div>
 
           <p>Swim and dive team registrations for the
-            <span x-text="now.year"></span>
-            season are
-            <span x-text="swimRegistrationOpen ? 'now open' : 'closed'"></span>.                                              
+            {% include datetime.html date=site.data.dates.swimTeam.registrationStart format="yyyy" %}
+            season
+            <span x-show="!swimRegistrationOpen && now <= swimRegistrationStart">
+              will open on
+              <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.registrationStart
+                format="EEE, MMM d, yyyy" %}</span>
+            </span>
+            <span x-show="swimRegistrationOpen">are open</span>
+            <span x-show="!swimRegistrationOpen && now >= swimRegistrationEnd">are closed</span>
+            .
             For questions about swim team, please email
-            <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>.                                              
-            You can also check out the {% include document.html filename="Swim Meet Primer" title="Swim Team Primer" nodoc=true %} for more information about what to expect.
+            <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>.
+            You can also check out the {% include document.html filename="Swim Meet Primer" title="Swim Team Primer"
+            nodoc=true %} for more information about what to expect.
           </p>
 
           <div class="flex flex-col space-y-2 mb-4">
-            <a
-              class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
-              x-bind:class="swimRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
+            <a class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
+              x-bind:class="swimRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 text-gray-500 cursor-not-allowed'"
               x-bind:href="swimRegistrationOpen && '{{site.data.links.swim_team_form}}'">Register for Swim Team</a>
-            <a
-              class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
-              x-bind:class="diveRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 cursor-not-allowed'"
+            <a class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
+              x-bind:class="diveRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 text-gray-500 cursor-not-allowed'"
               x-bind:href="diveRegistrationOpen && '{{site.data.links.dive_team_form}}'">Register for Dive Team</a>
           </div>
 
           <a id="fees"></a>
           <h3>Fees</h3>
-          <p>Swim team fees include one t-shirt per swimmer. Dive fees do not include a t-shirt. Swim                                              
+          <p>Swim team fees include one t-shirt per swimmer. Dive fees do not include a t-shirt. Swim
             caps and extra shirts can be purchased at an additional cost if desired.</p>
 
           <p>If you aren't a full pool member, you'll need to purchase a swim/dive team membership
             <strong class="italic font-normal">in addition to</strong>
-            the team fees shown below. You                                              
+            the team fees shown below. You
             may also consider getting a
             <a href="/join-now.html">trial membership</a>
-            instead, which                                              
+            instead, which
             will allow your whole family to come to the pool all summer long.
           </p>
 
@@ -148,7 +154,6 @@ title: Swim and Dive
 
 <!-- Swim Team Schedule -->
 <section class="wrapper style4 container" x-data="{
-  now: luxon.DateTime.now(),
   cityMeetStart: parseDate('{{ site.data.dates.swimTeam.cityMeetSaturday }}')
 }">
   <div class="content">
@@ -160,47 +165,49 @@ title: Swim and Dive
         <div class="9u 12u(narrower)">
           <header>
             <h2>Swim Team Schedule
-              <span x-text="now.year"></span>
+              {% include datetime.html date=site.data.dates.swimTeam.registrationStart format="yyyy" %}
             </h2>
           </header>
 
           <ul class="default">
             <li>Registration opens
-              <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.registrationStart format="EEE, MMM d" %}</span>
+              <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.registrationStart
+                format="EEE, MMM d" %}</span>
             </li>
             <li>After-school practice (returning swimmers only)
               <span class="font-medium">{{ site.data.dates.swimTeam.afterSchoolPractice }}</span>
             </li>
             <li>New swimmer evaluations and parent meeting
-              <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.newSwimmerEvals format="EEE, MMM d, ha" %}</span>
+              <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.newSwimmerEvals
+                format="EEE, MMM d, ha" %}</span>
             </li>
             <li>Regular practices every weekday morning beginning
-              <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.regularPracticesStart format="EEE, MMM d" %}</span>
+              <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.regularPracticesStart
+                format="EEE, MMM d" %}</span>
             </li>
           </ul>
         </div>
       </div>
       <table>
-        <caption>
-          <span x-text="now.year"></span>
-          Swim Meet Schedule</caption>
+        <caption>{% include datetime.html date=site.data.dates.swimTeam.cityMeetSaturday format="yyyy" %} Swim Meet
+          Schedule</caption>
         <tr>
           <th>Date</th>
           <th>vs.</th>
           <th>Location</th>
         </tr>
         {% for meet in site.data.dates.swimTeam.meets %}
-          <tr>
-            <td>{% include datetime.html date=meet.date format="MMM d" %}</td>
-            <td>{{ meet.vs }}</td>
-            <td>
-              {% if meet.home %}
-                Whitesburg
-              {% else %}
-                {{ meet.vs }}
-              {% endif %}
-            </td>
-          </tr>
+        <tr>
+          <td>{% include datetime.html date=meet.date format="MMM d" %}</td>
+          <td>{{ meet.vs }}</td>
+          <td>
+            {% if meet.home %}
+            Whitesburg
+            {% else %}
+            {{ meet.vs }}
+            {% endif %}
+          </td>
+        </tr>
         {% endfor %}
         <tr>
           <td>
@@ -216,14 +223,13 @@ title: Swim and Dive
 
 <!-- Dive team schedule -->
 <section class="wrapper style4 container" x-data="{
-  now: luxon.DateTime.now(),
   cityMeetStart: parseDate('{{ site.data.dates.swimTeam.cityMeetSaturday }}').plus({days: -2})
 }">
   <div class="content">
     <section>
       <header>
         <h2>Dive Team Schedule
-          <span x-text="now.year"></span>
+          {% include datetime.html date=site.data.dates.diveTeam.registrationStart format="yyyy" %}
         </h2>
       </header>
       <ul class="default">
@@ -233,25 +239,26 @@ title: Swim and Dive
       </ul>
       <table>
         <caption>
-          <span x-text="now.year"></span>
-          Dive Meet Schedule</caption>
+          {% include datetime.html date=site.data.dates.diveTeam.meets.first.date format="yyyy" %}
+          Dive Meet Schedule
+        </caption>
         <tr>
           <th>Date</th>
           <th>vs.</th>
           <th>Location</th>
         </tr>
         {% for meet in site.data.dates.diveTeam.meets %}
-          <tr>
-            <td>{% include datetime.html date=meet.date format="MMM d" %}</td>
-            <td>{{ meet.vs }}</td>
-            <td>
-              {% if meet.home %}
-                Whitesburg
-              {% else %}
-                {{ meet.vs }}
-              {% endif %}
-            </td>
-          </tr>
+        <tr>
+          <td>{% include datetime.html date=meet.date format="MMM d" %}</td>
+          <td>{{ meet.vs }}</td>
+          <td>
+            {% if meet.home %}
+            Whitesburg
+            {% else %}
+            {{ meet.vs }}
+            {% endif %}
+          </td>
+        </tr>
         {% endfor %}
         <tr>
           <td>
