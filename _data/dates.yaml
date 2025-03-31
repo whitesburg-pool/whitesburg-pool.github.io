@@ -35,15 +35,15 @@ swimTeam:
       home: true
 
 diveTeam:
-  registrationStart: "2024-05-14"
-  registrationEnd: "2024-05-24"
+  registrationStart: "2025-03-30"
+  registrationEnd: "2025-05-24"
   meets:
-    - date: "2024-06-10"
+    - date: "2025-06-16"
       vs: "Monte Sano"
-      home: true
-    - date: "2024-06-17"
-      vs: "Blossomwood"
       home: false
-    - date: "2024-06-24"
-      vs: "Camelot"
+    - date: "2025-06-23"
+      vs: "Blossomwood"
       home: true
+    - date: "2025-06-30"
+      vs: "Lily Flagg"
+      home: false
