@@ -31,6 +31,24 @@ css: index
 
 </section>
 
+<section x-data="{
+    today: luxon.DateTime.now(),
+    infoMeetingDate: parseDate('{{ site.data.dates.season.newMemberInfoMeeting }}'),
+    showInfoMeeting() {
+        return this.today <= this.infoMeetingDate;
+    }
+}" x-show="showInfoMeeting()" id="info-meeting" class="cta">
+  <header class="flex flex-col items-center gap-6">
+    <h2>New Member Info Meeting</h2>
+    <p class="max-w-lg">We will have a new-member informational meeting at the pool on
+      <strong>{% include datetime.html date=site.data.dates.season.newMemberInfoMeeting format="EEEE, MMM d" %}</strong>
+      at
+      <strong>{% include datetime.html date=site.data.dates.season.newMemberInfoMeeting format="h:mma" %}</strong>.
+      Come check out the pool, learn more about membership, and get all of your questions answered.
+    </p>
+  </header>
+</section>
+
 <!-- Main -->
 <article id="main" x-data="{
     isSeason: false,

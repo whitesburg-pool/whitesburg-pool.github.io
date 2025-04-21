@@ -7,6 +7,7 @@ season:
   schoolStart: "2025-08-04"
   # Update this one sometime during the season
   nextSeasonStart: "2025-05-23"
+  newMemberInfoMeeting: "2025-05-04T15:30"
 
 swimTeam:
   showCityMeetFeePurchase: false
