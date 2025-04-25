@@ -2,6 +2,9 @@
 layout: default
 title: Swim and Dive
 ---
+<section id="swim-dive-banner"></section>
+<section id="spacer">&nbsp;</section>
+
 {% if site.data.dates.showCityMeetFeePurchase %}
 <section id="swim-and-dive" class="cta mb-8">
   <header>
@@ -26,12 +29,11 @@ title: Swim and Dive
     Swim & Dive Teams
   </h2>
   <p>Any area youth from age 4 to 17 are invited to join the Whitesburg Tide swim and dive
-    teams! We're part of the
-    <a href="http://swimrcsl.org/">Rocket City Swim and Dive
-      League</a>
-    and swimmers and divers of any skill level are welcome. Whether you're super
-    competitive or just learning, our awesome coaches will have you setting PRs in no time...
-    all while having fun with your friends at the pool!
+    teams! We're part of the <a href="http://swimrcsl.org/">Rocket City Swim and Dive League</a>
+    and swimmers and divers of any skill level are welcome. For our younger swimmers, we even
+    offer the Tiny Tides group for children ages 3-6 who are still working on basic swimming skills.
+    Whether you're super competitive or just learning, our awesome coaches will have you setting
+    PRs in no time... all while having fun with your friends at the pool!
   </p>
   <h2>Questions?</h2>
   <p>Email
@@ -42,9 +44,6 @@ title: Swim and Dive
     {% include mailchimp_subscribe_form_main.html audienceId=site.data.mailchimp.audience_ids.swimteam %}
   </div>
 </header>
-
-<section id="swim-dive-banner"></section>
-<section id="spacer">&nbsp;</section>
 
 <!-- How to Join -->
 <section class="wrapper style4 container">
@@ -90,6 +89,9 @@ title: Swim and Dive
               x-bind:class="swimRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 text-gray-500 cursor-not-allowed'"
               x-bind:href="swimRegistrationOpen && '{{site.data.links.swim_team_form}}'">Register for Swim Team</a>
             <a class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
+              x-bind:class="swimRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 text-gray-500 cursor-not-allowed'"
+              x-bind:href="swimRegistrationOpen && '{{site.data.links.tiny_tides_form}}'">Register for Tiny Tides</a>
+            <a class="w-80 flex justify-center rounded-md border border-transparent py-3 px-6 text-base font-medium text-white shadow-sm"
               x-bind:class="diveRegistrationOpen ? 'bg-brand hover:bg-brand-darker cursor-pointer' : 'bg-gray-300 text-gray-500 cursor-not-allowed'"
               x-bind:href="diveRegistrationOpen && '{{site.data.links.dive_team_form}}'">Register for Dive Team</a>
           </div>
@@ -126,6 +128,11 @@ title: Swim and Dive
               <span class="font-medium">Each additional swimmer after 3:</span>
               $15
             </li>
+          </ul>
+
+          <h4>Tiny Tides</h4>
+          <ul class="default">
+            <li>$100 per swimmer</li>
           </ul>
 
           <h4>Dive Team</h4>
