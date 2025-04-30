@@ -39,10 +39,6 @@ title: Swim and Dive
   <p>Email
     <a href="mailto:swimteam@whitesburgpool.org">swimteam@whitesburgpool.org</a>
   </p>
-  <h2 class="text-center">Join the Swim Team Email List</h2>
-  <div class="max-w-2xl mx-auto text-left">
-    {% include mailchimp_subscribe_form_main.html audienceId=site.data.mailchimp.audience_ids.swimteam %}
-  </div>
 </header>
 
 <!-- How to Join -->
@@ -111,49 +107,59 @@ title: Swim and Dive
             will allow your whole family to come to the pool all summer long.
           </p>
 
-          <h4>Swim Team</h4>
-          <ul class="default">
-            <li>
-              <span class="font-medium">1 swimmer:</span>
-              $130
-            </li>
-            <li>
-              <span class="font-medium">2 swimmers:</span>
-              $210
-            </li>
-            <li>
-              <span class="font-medium">3 swimmers:</span>
-              $280
-            </li>
-            <li>
-              <span class="font-medium">Each additional swimmer after 3:</span>
-              $15
-            </li>
-          </ul>
+          <div class="flex flex-col lg:flex-row">
+            <div class="flex-auto">
+              <h4>Swim Team</h4>
+              <ul class="default">
+                <li>
+                  <span class="font-medium">1 swimmer:</span>
+                  $130
+                </li>
+                <li>
+                  <span class="font-medium">2 swimmers:</span>
+                  $210
+                </li>
+                <li>
+                  <span class="font-medium">3 swimmers:</span>
+                  $280
+                </li>
+                <li>
+                  <span class="font-medium">Each additional swimmer after 3:</span>
+                  $15
+                </li>
+              </ul>
 
-          <h4>Tiny Tides</h4>
-          <ul class="default">
-            <li>$100 per swimmer</li>
-          </ul>
+              <h4>Tiny Tides</h4>
+              <ul class="default">
+                <li>$100 per swimmer</li>
+              </ul>
 
-          <h4>Dive Team</h4>
-          <ul class="default">
-            <li>
-              <span class="font-medium">1 diver:</span>
-              $90
-            </li>
-            <li>
-              <span class="font-medium">2 divers:</span>
-              $115
-            </li>
-            <li>
-              <span class="font-medium">3+ divers:</span>
-              $135
-            </li>
-          </ul>
+              <h4>Dive Team</h4>
+              <ul class="default">
+                <li>
+                  <span class="font-medium">1 diver:</span>
+                  $90
+                </li>
+                <li>
+                  <span class="font-medium">2 divers:</span>
+                  $115
+                </li>
+                <li>
+                  <span class="font-medium">3+ divers:</span>
+                  $135
+                </li>
+              </ul>
 
-          <h4>Swim/Dive Team-only Pool Membership</h4>
-          <p>$150</p>
+              <h4>Swim/Dive Team-only Pool Membership</h4>
+              <p>$150</p>
+            </div>
+            <div class="flex-auto my-auto">
+              <h2 class="text-center">Join the Swim Team Email List</h2>
+              <div class="max-w-2xl mx-auto text-left">
+                {% include mailchimp_subscribe_form_main.html audienceId=site.data.mailchimp.audience_ids.swimteam %}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
