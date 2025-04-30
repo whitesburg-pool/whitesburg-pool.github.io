@@ -75,7 +75,8 @@ title: Swim and Dive
               <span class="font-medium">{% include datetime.html date=site.data.dates.swimTeam.registrationStart
                 format="EEE, MMM d, yyyy" %}</span>
             </span>
-            <span x-show="swimRegistrationOpen">are open</span>
+            <span x-show="swimRegistrationOpen">are open until {% include datetime.html
+              date=site.data.dates.swimTeam.registrationEnd format="MMM d" %} </span>
             <span x-show="!swimRegistrationOpen && now >= swimRegistrationEnd">are closed</span>
             .
             For questions about swim team, please email
