@@ -37,7 +37,7 @@ swimTeam:
 
 diveTeam:
   registrationStart: "2025-03-30"
-  registrationEnd: "2025-05-24"
+  registrationEnd: "2025-05-30"
   meets:
     - date: "2025-06-16"
       vs: "Monte Sano"
