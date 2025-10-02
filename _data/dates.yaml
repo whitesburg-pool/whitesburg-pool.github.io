@@ -2,15 +2,15 @@
 
 season:
   # Update these sometime after the end of one season and before the start of the next
-  start: "2025-05-23"
-  end: "2025-09-01"
-  schoolStart: "2025-08-04"
+  start: "2026-05-22"
+  end: "2026-09-07"
+  schoolStart: "2026-08-05"
   # Update this one sometime during the season
-  nextSeasonStart: "2025-05-23"
+  nextSeasonStart: "2026-05-22"
   newMemberInfoMeeting: "2025-05-04T15:30"
 
 swimTeam:
-  showCityMeetFeePurchase: true
+  showCityMeetFeePurchase: false
   cityMeetFeeDeadline: "2025-07-09"
   registrationStart: "2025-03-17"
   registrationEnd: "2025-05-31"
