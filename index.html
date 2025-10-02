@@ -37,27 +37,6 @@ css: index
     showInfoMeeting() {
         return this.today <= this.infoMeetingDate;
     }
-}" x-show="true" id="market-announce" class="cta">
-  <header class="flex flex-col items-center gap-6">
-    <h2>Rising Tide Marketplace</h2>
-    <p class="max-w-lg">We are having a local farm and crafts vendor market at the pool on <strong>Saturday, Sept
-        27th, 2025</strong>.
-    </p>
-  </header>
-  <footer>
-    <ul class="buttons">
-      <li><a href="/market" class="button special">More Info</a></li>
-    </ul>
-  </footer>
-</section>
-
-
-<section x-data="{
-    today: luxon.DateTime.now(),
-    infoMeetingDate: parseDate('{{ site.data.dates.season.newMemberInfoMeeting }}'),
-    showInfoMeeting() {
-        return this.today <= this.infoMeetingDate;
-    }
 }" x-show="showInfoMeeting()" id="info-meeting" class="cta">
   <header class="flex flex-col items-center gap-6">
     <h2>New Member Info Meeting</h2>
