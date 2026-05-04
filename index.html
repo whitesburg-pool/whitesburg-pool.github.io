@@ -70,10 +70,10 @@ css: index
     <p>We will reopen {% include datetime.html date=site.data.dates.season.nextSeasonStart %}</p>
   </header>
 
-  <header x-show="isSeason && !backToSchool" class="special container">
+  <header class="special container">
     <span class="icon fas fa-tint"></span>
-    <h2>Now Open</h2>
-    <p>Come on in, the water's great!</p>
+    <h2 x-show="isSeason && !backToSchool">Now Open</h2>
+    <p x-show="isSeason && !backToSchool">Come on in, the water's great!</p>
     <h2>Regular Summer Hours</h2>
     <p>Monday - Saturday 11am - 8pm</p>
     <p>Sunday 1pm - 8pm</p>
