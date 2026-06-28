@@ -10,7 +10,7 @@ season:
   newMemberInfoMeeting: "2025-05-04T15:30"
 
 swimTeam:
-  showCityMeetFeePurchase: false
+  showCityMeetFeePurchase: true
   cityMeetFeeDeadline: "2026-07-09"
   registrationStart: "2026-03-23"
   registrationEnd: "2026-05-31"
